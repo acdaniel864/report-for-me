@@ -2,6 +2,14 @@
 
 A reusable template for autonomous software delivery using headless Claude agents. Feed a requirements doc in, review pull requests out. Two human touchpoints.
 
+## The problem this solves
+
+Using Claude Code as a pair programmer is productive, but the orchestration overhead adds up fast. You write a requirements doc, then spend hours babysitting the implementation: breaking stories, creating issues, assigning work, reviewing diffs, context-switching between "what should we build" and "let me check what the agent just did." The productivity gains get eaten by the management tax.
+
+The question that led to this template: does Claude actually need you sitting there?
+
+It doesn't. Claude runs headless in GitHub Actions runners the same way we've run headless browsers in CI for years. No IDE. No chat window. Just a process that starts, reads an issue, implements a feature, opens a PR, and shuts down. The agent is gone, but the PR is there -- with a full conversation log of every decision it made, every file it touched, every test it ran. It's more transparent than most human-written PRs.
+
 This template contains the complete automation infrastructure -- GitHub Actions workflows, Claude Code configuration, Linear integration, and safety hooks -- extracted from a production pipeline and stripped of all project-specific code. Fork it, fill in your CLAUDE.md, and you have a working agent pipeline.
 
 ## What's in the box
@@ -81,6 +89,8 @@ linear-sync.yml fires (on PR merge)
   - The story is complete
 ```
 
+The CLAUDE.md file in your repo is what ties it together. It gives every agent the same architectural context, the same rules, the same testing standards. The agents read it the same way a new developer reads a contributing guide on their first day.
+
 ### Key design decisions
 
 **Why GitHub Actions, not a persistent agent?** No infrastructure to maintain. Each agent is a fresh GitHub Actions runner that spins up, does work, and self-destructs. No VMs, no pm2, no process monitoring. The workflow YAML is the entire deployment.
@@ -91,6 +101,8 @@ linear-sync.yml fires (on PR merge)
 
 **Why a 5-iteration fix cap?** Prevents infinite loops where the fix agent and review agent disagree. After 5 attempts, a human needs to intervene. In practice, most issues resolve in 1-2 iterations.
 
+**Why review the conversation, not the diff?** The PR includes a full log of every decision the agent made. You're not reading diffs line by line. You're reading a narrative of decisions. If the agent made a bad call, you can see exactly where and why.
+
 ### Safety mechanisms
 
 - **Branch protection hook**: Blocks all file edits on the `main` branch. Agents must work on feature branches.
@@ -99,6 +111,16 @@ linear-sync.yml fires (on PR merge)
 - **Bot-only fix trigger**: The fix agent only responds to bot review comments, not human ones. Prevents unintended fix loops.
 - **Concurrency groups**: Only one fix agent runs per PR at a time.
 - **Turn limits**: Dev agent capped at 40 turns, review at 10, fix at 15.
+
+### When agents make mistakes
+
+The agents still make mistakes. Sometimes they misread a requirement or take a wrong architectural turn. But the feedback loop is fast: reject the PR, add a comment explaining why, and the agent can try again. A failed attempt costs minutes of compute, not hours of a developer's day.
+
+## Beyond code
+
+This pattern is not specific to software development. The "dev agents" are really just "doer agents." Anything that can be defined in a requirements document and validated against testable criteria can run through this pipeline. The doer agents could be writing compliance reports, processing applications, generating legal drafts, or building marketing copy against a brand guide. The review agents could be checking regulatory compliance, security policies, or just whether the output matches what was asked for.
+
+The human stays in the approval seat, not the execution seat.
 
 ## Quick start
 
