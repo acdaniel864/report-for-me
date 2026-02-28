@@ -84,18 +84,21 @@ jobs:
 
             ## Rules
 
-            - Follow existing patterns in CLAUDE.md
-            - Run `npm test` and `npx tsc --noEmit` after fixes
+            - Read CLAUDE.md for project conventions before making changes
+            - Match the project's existing code patterns, naming, and style
+            - Reuse existing utilities and components (search the codebase before creating anything new)
+            - Run `npm test`, `npx tsc --noEmit`, `npm run lint` after fixes
             - Commit: "fix: address review feedback [autofix ${{ steps.iteration.outputs.count }}/5]"
             - If tests fail, debug and fix until they pass
             - Push changes to the PR branch
+            - Do not introduce tech debt while fixing (no TODO/FIXME, no copy-paste)
 
             ## What NOT to fix
 
             - Style-only nits (formatting, naming preferences)
             - Purely cosmetic suggestions
 
-            Focus on: correctness, security, architecture, and test failures.
+            Focus on: correctness, security, architecture, code reuse, and test failures.
           settings: |
             {
               "permissions": {

@@ -63,6 +63,24 @@ src/
 - Run `npm test` before every PR.
 -->
 
+## Codebase Discovery (Required Before Writing Code)
+
+Before implementing ANY feature or fix, agents MUST explore the existing codebase:
+
+1. **Understand the project**: Read `package.json` to identify the tech stack, framework, and key dependencies. Read the top-level directory structure to understand how the project is organized.
+2. **Study the target area**: Read 2-3 existing files in the directories you will be modifying. Note naming conventions (camelCase vs kebab-case, file naming patterns), import style, error handling patterns, and how similar features are already implemented.
+3. **Find reusable code**: Before creating any new utility, helper, component, or abstraction, search the codebase for existing ones. Use Grep and Glob to look for similar functionality. Reuse what exists rather than duplicating.
+4. **Match the project's patterns**: Your code must look like it was written by the same team. Match the existing code style, naming conventions, module structure, and architectural patterns. If the project uses a specific pattern (e.g., service layers, repository pattern, API response helpers), follow it.
+
+This applies to all agents: dev, review, and fix. The review agent should verify that PRs follow these principles.
+
+## Code Quality and Tech Debt
+
+- **Boy scout rule**: Leave code better than you found it. If you touch a file and see a small, safe improvement (dead import, obvious simplification, missing type), fix it in the same PR.
+- **Do not create new tech debt**: No TODO/FIXME/HACK comments unless the issue explicitly calls for a partial implementation. No copy-pasted code when a shared utility exists or should be created. No quick workarounds that bypass the project's established patterns.
+- **Prefer existing abstractions**: If the project has a utility for something (API responses, validation, logging, error handling), use it. Do not create parallel implementations.
+- **Keep changes focused**: Address tech debt only in files you are already modifying for the current task. Do not refactor unrelated code.
+
 ## Headless Agent Guidelines
 
 <!-- These rules apply when agents run autonomously in GitHub Actions
@@ -88,6 +106,7 @@ Agents operate autonomously within these boundaries:
 - Fix lint errors and type errors
 - Create feature branches and open PRs
 - Update issue checkboxes to track progress
+- Fix small tech debt in files you are already modifying
 
 **Stop and escalate (comment on the issue/PR):**
 - Ambiguous or contradictory requirements

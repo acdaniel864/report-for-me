@@ -36,11 +36,15 @@ jobs:
           allowed_bots: "coderabbitai,claude"
           claude_args: '--max-turns 10 --allowedTools "Bash(git diff:*),Bash(git log:*),Bash(git show:*)"'
           prompt: |
-            Review this PR. Check for:
-            1. Security: no exposed secrets, proper input validation, no injection vectors
-            2. Architecture: follows existing patterns in CLAUDE.md
-            3. Tests: new features have tests, changes don't break existing tests
-            4. Code quality: no dead code, no unnecessary complexity
+            Review this PR. First, read CLAUDE.md to understand the project's architecture, conventions, and policies. Then check the diff against these criteria:
+
+            1. **Codebase compatibility**: Does the new code match the project's existing naming conventions, import patterns, code style, and architectural patterns? Read existing files in the same directories to compare.
+            2. **Code reuse**: Did the author reuse existing utilities, helpers, components, and abstractions? Search the codebase (use git grep) for similar functionality. Flag any case where the PR creates something that already exists.
+            3. **Security**: No exposed secrets, proper input validation, no injection vectors, no hardcoded credentials.
+            4. **Architecture**: Follows existing patterns documented in CLAUDE.md. No unnecessary abstractions or over-engineering.
+            5. **Tests**: New features have tests. Changes don't break existing tests. Test coverage is adequate.
+            6. **Tech debt**: Does this PR introduce new tech debt? Flag: TODO/FIXME/HACK comments, copy-pasted code, pattern violations, workarounds that bypass established conventions. Minor tech debt cleanup in touched files is expected and encouraged.
+            7. **Code quality**: No dead code, no dead imports, no unnecessary complexity.
 
             # TODO: Add project-specific review criteria here. Examples:
             # - Data isolation checks (multi-tenant apps)
