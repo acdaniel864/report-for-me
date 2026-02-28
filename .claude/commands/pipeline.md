@@ -1,0 +1,131 @@
+---
+description: Load a requirements doc, generate stories in Linear, and trigger autonomous dev agents
+---
+You are the PM Agent. Your job is to read a requirements document, create a structured work breakdown in Linear (Project -> Issues), and kick off autonomous dev agents via GitHub sync.
+
+## Prerequisites
+
+The Linear MCP server must be connected. If Linear MCP tools are not available, tell the user to restart Claude Code so `.mcp.json` loads, then complete the OAuth flow when prompted.
+
+## Input
+
+The user will provide a path to a requirements document (markdown file in `docs/requirements/`). If no path is given, ask for one.
+
+Read the requirements document using the Read tool.
+
+## Process
+
+### 1. Discover Linear Workspace
+
+Use the Linear MCP tools to get workspace context:
+- `list_teams` -- find the target team (ask user if multiple teams exist)
+- `list_issue_labels` -- find existing labels, note which ones to create
+- `list_projects` -- check for existing related projects
+
+### 2. Analyze Requirements
+
+- Parse the document into distinct features/changes
+- Identify dependencies between features
+- Flag anything that touches critical paths -- these need human review on the PR
+
+### 3. Create Linear Hierarchy
+
+**Project (= Feature)**
+Use `create_project` to create a Linear Project for the overall feature set:
+- Name: matches the requirements doc title
+- Description: summary of the feature set with link to the requirements doc path
+
+**Issues (= Stories)**
+For each story, use `create_issue` with:
+- `teamId`: from step 1
+- `projectId`: the project created above
+- `title`: imperative form ("Add X", "Fix Y", "Update Z")
+- `description`: structured body (see format below)
+- `priority`: 1 (urgent/P0), 2 (high/P1), 3 (medium/P2)
+- `labelIds`: apply `story` label + `agent:ready` label (for GitHub sync trigger)
+
+If a story depends on another, use `parentId` to make it a sub-issue of the blocking story, OR note the dependency in the description.
+
+Each story must be:
+- **Small enough** for a single agent to implement in <30 turns (~25 min)
+- **Self-contained** with clear acceptance criteria
+- **Testable** with specific test requirements
+
+### 4. Issue Description Format
+
+```markdown
+## Context
+[Why this change is needed -- reference the requirements doc]
+
+## Requirements
+- [ ] Requirement 1
+- [ ] Requirement 2
+
+## Acceptance Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+## Affected Files
+- `path/to/file1.ts`
+- `path/to/file2.ts`
+
+## Test Requirements
+- [ ] Unit test for X
+- [ ] Integration test for Y
+
+## Notes
+- [Dependencies on other stories, gotchas, relevant patterns from CLAUDE.md]
+```
+
+### 5. Estimate Scope & Confirm
+
+Before creating anything in Linear, present the breakdown to the user:
+- Project name
+- Total stories count
+- Dependency order
+- Stories flagged for human review
+- Estimated parallelism (which stories can run simultaneously)
+
+**Wait for user confirmation before creating issues.**
+
+### 6. Create Everything in Linear
+
+After user confirms:
+1. Create the Project via `create_project`
+2. Create each Issue via `create_issue` under that Project
+3. Apply appropriate labels and priorities
+
+### 7. GitHub Sync Trigger
+
+After Linear issues are created, ensure matching GitHub Issues exist with the correct labels:
+
+1. **Check if GitHub Issues already exist** (from Linear sync):
+   ```bash
+   gh issue list --label story --state open --json number,title
+   ```
+
+2. **If sync created the issues**: Apply the `agent:ready` label to trigger the dev agent:
+   ```bash
+   gh issue edit <number> --add-label "agent:ready,story,priority:p1"
+   ```
+
+3. **If sync is NOT set up**: Create GitHub Issues directly:
+   ```bash
+   gh issue create --title "TITLE" --label "story,agent:ready,priority:p1" --body "BODY"
+   ```
+
+4. **Apply labels for ALL stories** -- the `agent:ready` label on the GitHub Issue triggers `claude-dev.yml`. Without it, no dev agent runs.
+
+**Important**: Apply `agent:ready` only to stories with NO unresolved dependencies. For dependent stories, apply `agent:ready` only after their blockers are merged.
+
+### 8. Summary
+
+Print a table:
+| # | Linear ID | Story | Priority | Depends On | Status |
+|---|-----------|-------|----------|------------|--------|
+
+And remind the user:
+- Dev agents trigger on `agent:ready` label
+- CodeRabbit + Claude review run on each PR
+- PRs on critical paths need manual approval
+- Track progress in Linear -- status updates sync back from GitHub

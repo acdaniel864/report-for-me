@@ -1,0 +1,50 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ \"$(git rev-parse --abbrev-ref HEAD 2>/dev/null)\" != \"main\" ] || { echo '{\"decision\":\"block\",\"reason\":\"Cannot edit files on main branch. Create a feature branch first.\"}' && exit 2; }",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/block-destructive.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE=$(cat | jq -r '.tool_input.file_path // .tool_response.filePath') && [[ \"$FILE\" == *.ts || \"$FILE\" == *.tsx ]] && npx eslint --fix \"$FILE\" 2>/dev/null || true",
+            "timeout": 30,
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": ["Read", "Glob", "Grep", "WebFetch", "WebSearch"],
+    "deny": [
+      "Edit(.env)",
+      "Edit(.env.local)",
+      "Edit(.env.production)",
+      "Read(.env)",
+      "Read(.env.local)",
+      "Read(.env.production)"
+    ]
+  }
+}

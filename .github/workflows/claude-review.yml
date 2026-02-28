@@ -1,0 +1,55 @@
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  pull_request_review_comment:
+    types: [created]
+  issue_comment:
+    types: [created]
+
+jobs:
+  claude-review:
+    if: >
+      github.event_name == 'pull_request' ||
+      github.event_name == 'pull_request_review_comment' ||
+      (github.event_name == 'issue_comment' &&
+       contains(github.event.comment.body, '@claude') &&
+       github.event.issue.pull_request)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Claude Code Review
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          allowed_bots: "coderabbitai,claude"
+          claude_args: '--max-turns 10 --allowedTools "Bash(git diff:*),Bash(git log:*),Bash(git show:*)"'
+          prompt: |
+            Review this PR. Check for:
+            1. Security: no exposed secrets, proper input validation, no injection vectors
+            2. Architecture: follows existing patterns in CLAUDE.md
+            3. Tests: new features have tests, changes don't break existing tests
+            4. Code quality: no dead code, no unnecessary complexity
+
+            # TODO: Add project-specific review criteria here. Examples:
+            # - Data isolation checks (multi-tenant apps)
+            # - No mock/fake data in production code
+            # - Compliance requirements
+            # - Performance considerations
+
+            # TODO: Define critical paths that require human review. Example:
+            # If the PR touches src/lib/auth/ or src/lib/db/:
+            # - Flag as REQUIRES HUMAN REVIEW in your summary
+
+            Post your review as a PR review comment. Use specific file:line references.
