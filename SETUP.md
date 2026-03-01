@@ -48,6 +48,9 @@ Test it:
 ```bash
 # In Claude Code CLI
 /pipeline docs/requirements/your-feature.md
+
+# Or build on an existing codebase (optional second argument)
+/pipeline docs/requirements/your-feature.md https://github.com/user/starter-repo
 ```
 
 ## Step 5: Fill in CLAUDE.md
@@ -113,9 +116,9 @@ claude mcp add github
 ## How It Works
 
 ```
-/pipeline docs/requirements/feature.md
+/pipeline docs/requirements/feature.md [optional: https://github.com/user/starter-repo]
   |
-  v
+  v  [If starter URL provided: clone, copy into repo, commit, push]
 Linear Issues created --> GitHub Issues synced (linear-sync.yml)
   |
   v  [agent:ready label triggers claude-dev.yml]

@@ -9,11 +9,50 @@ The Linear MCP server must be connected. If Linear MCP tools are not available, 
 
 ## Input
 
-The user will provide a path to a requirements document (markdown file in `docs/requirements/`). If no path is given, ask for one.
+The user will provide a path to a requirements document (markdown file in `docs/requirements/`), and optionally a git URL for a starter codebase.
 
-Read the requirements document using the Read tool.
+```
+/pipeline docs/requirements/feature.md                              # Build from scratch
+/pipeline docs/requirements/feature.md https://github.com/user/repo # Build on existing code
+```
+
+If no path is given, ask for one. Read the requirements document using the Read tool.
 
 ## Process
+
+### 0. Import Starter Codebase (if git URL provided)
+
+If the user provided a second argument (a git URL), import the starter codebase before doing anything else:
+
+1. **Clone the starter repo** into a temp directory:
+   ```bash
+   git clone --depth 1 <url> /tmp/starter-repo
+   ```
+
+2. **Copy contents into the project root**, preserving template infrastructure. Use rsync to exclude files that are part of the pipeline template:
+   ```bash
+   rsync -av --exclude='.git' --exclude='.claude/' --exclude='.github/' --exclude='CLAUDE.md' --exclude='docs/' --exclude='.mcp.json' --exclude='.gitignore' /tmp/starter-repo/ ./
+   ```
+
+3. **Analyze the starter code** to identify the tech stack. Read the relevant manifest file (`package.json`, `requirements.txt`, `go.mod`, `Cargo.toml`, `pom.xml`, etc.) and scan the top-level directory structure. Note the language, framework, key dependencies, and project layout. This context will be used when creating stories.
+
+4. **Clean up the temp directory**:
+   ```bash
+   rm -rf /tmp/starter-repo
+   ```
+
+5. **Commit the starter code**:
+   ```bash
+   git add -A
+   git commit -m "feat: add starter codebase from <url>"
+   ```
+
+6. **Push to remote** so headless agents can access the starter code:
+   ```bash
+   git push
+   ```
+
+After this step, continue with the normal pipeline flow. The starter code is now in the repo and will be referenced when creating stories.
 
 ### 1. Discover Linear Workspace
 
@@ -33,7 +72,7 @@ Use the Linear MCP tools to get workspace context:
 **Project (= Feature)**
 Use `create_project` to create a Linear Project for the overall feature set:
 - Name: matches the requirements doc title
-- Description: summary of the feature set with link to the requirements doc path
+- Description: summary of the feature set with link to the requirements doc path. If a starter codebase was imported, include the git URL and detected tech stack in the description.
 
 **Issues (= Stories)**
 For each story, use `create_issue` with:
@@ -50,6 +89,12 @@ Each story must be:
 - **Small enough** for a single agent to implement in <30 turns (~25 min)
 - **Self-contained** with clear acceptance criteria
 - **Testable** with specific test requirements
+
+**If a starter codebase was imported**, adjust story language to reflect the existing code:
+- Reference existing files/modules in the "Affected Files" section (use real paths from the codebase)
+- Use "Modify X" or "Extend Y" rather than "Create X" when the file already exists
+- Note the detected tech stack so the dev agent knows what's already in place
+- Call out any existing patterns (routing, state management, styling) the agent should follow
 
 ### 4. Issue Description Format
 

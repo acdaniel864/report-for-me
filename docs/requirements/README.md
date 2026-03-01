@@ -8,6 +8,9 @@ The `/pipeline` command reads a requirements doc from this directory, breaks it 
 
 ```
 /pipeline docs/requirements/my-feature.md
+
+# Or build on an existing codebase (optional second argument)
+/pipeline docs/requirements/my-feature.md https://github.com/user/starter-repo
 ```
 
 ## Format

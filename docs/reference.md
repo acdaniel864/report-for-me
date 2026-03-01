@@ -48,12 +48,13 @@ Two human touchpoints: (1) write the requirements doc, (2) review and merge PRs.
 The `/pipeline` command (`.claude/commands/pipeline.md`) runs locally in the Claude Code CLI.
 
 1. You write a requirements doc in `docs/requirements/`
-2. Run `/pipeline docs/requirements/your-feature.md`
-3. Claude reads the doc and connects to Linear via MCP
-4. Breaks requirements into agent-sized stories (each completable in <30 turns)
-5. Creates a Linear Project and Issues with structured descriptions
-6. Waits for your confirmation before creating anything
-7. Syncs to GitHub Issues and applies the `agent:ready` label
+2. Run `/pipeline docs/requirements/your-feature.md` (optionally add a git URL as a second argument to build on an existing codebase)
+3. If a starter codebase URL was provided, Claude clones it, copies files into the project root (preserving template infrastructure), commits, and pushes
+4. Claude reads the doc and connects to Linear via MCP
+5. Breaks requirements into agent-sized stories (each completable in <30 turns), referencing existing files if a starter codebase was imported
+6. Creates a Linear Project and Issues with structured descriptions
+7. Waits for your confirmation before creating anything
+8. Syncs to GitHub Issues and applies the `agent:ready` label
 
 The `agent:ready` label is the trigger. Stories with unresolved dependencies do not get the label until their blockers are merged.
 
@@ -126,7 +127,7 @@ Only bot review comments trigger the fix agent. Human comments do not trigger it
 
 | Command | File | Purpose |
 |---------|------|---------|
-| `/pipeline` | `pipeline.md` | PM Agent: reads requirements doc, creates Linear Project and Issues, syncs to GitHub, applies `agent:ready` label |
+| `/pipeline` | `pipeline.md` | PM Agent: reads requirements doc, optionally imports a starter codebase, creates Linear Project and Issues, syncs to GitHub, applies `agent:ready` label |
 | `/review` | `review.md` | 3-iteration QC review: (1) correctness, (2) architecture, (3) security/performance |
 
 ### Agents (`.claude/agents/`)
@@ -368,8 +369,9 @@ You write docs/requirements/feature.md
   |
   v
 /pipeline command (local Claude Code CLI)
+  |  (Optional) Clones starter codebase, copies into repo, commits, pushes
   |  Uses: Linear MCP (list_teams, create_project, create_issue)
-  |  Creates: Linear Project + Issues
+  |  Creates: Linear Project + Issues (referencing existing code if starter was imported)
   |  Applies: agent:ready label on GitHub Issues
   |
   v
