@@ -1,6 +1,6 @@
 # Agent Pipeline Template
 
-A reusable template for autonomous software delivery using headless Claude agents. Feed a requirements doc in, review pull requests out. Two human touchpoints.
+A reusable template for autonomous software delivery using headless Claude agents. Feed a requirements doc in, review pull requests out. Four human touchpoints.
 
 ## The problem this solves
 
