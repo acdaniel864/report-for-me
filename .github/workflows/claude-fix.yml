@@ -75,7 +75,7 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_args: "--max-turns 15"
-          direct_prompt: |
+          prompt: |
             A code review bot has posted feedback on this PR (#${{ github.event.pull_request.number }}).
 
             Read ALL review comments using `gh pr view ${{ github.event.pull_request.number }} --comments` and `gh api repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews`.
