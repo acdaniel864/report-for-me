@@ -31,3 +31,6 @@ coverage/
 
 # Task management (session-specific)
 tasks/
+
+# Jupyter notebooks
+notebooks/.ipynb_checkpoints/
