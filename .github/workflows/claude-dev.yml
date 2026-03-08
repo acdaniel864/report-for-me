@@ -28,7 +28,7 @@ jobs:
       pull-requests: write
       issues: write
       id-token: write
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - name: Extract Linear issue ID
         id: linear
@@ -145,6 +145,14 @@ jobs:
         with:
           node-version: 20
 
+      - name: Setup Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
       - name: Run Claude Code
         uses: anthropics/claude-code-action@8cfb50531602989156055238cb98cca2db5d6bfd # v1
         with:
@@ -153,7 +161,7 @@ jobs:
           label_trigger: "agent:ready"
           assignee_trigger: "claude"
           # TODO: Adjust --max-turns and --allowedTools for your project
-          claude_args: '--max-turns 40 --allowedTools "Edit,Write,Read,MultiEdit,Glob,Grep,Bash(npm:*),Bash(npx:*),Bash(node:*),Bash(tsc:*),Bash(mkdir:*),Bash(ls:*),Bash(cat:*),Bash(cp:*),Bash(mv:*),Bash(chmod:*),Bash(git:*),Bash(gh:*)"'
+          claude_args: '--max-turns 40 --allowedTools "Edit,Write,Read,MultiEdit,Glob,Grep,Bash(npm:*),Bash(npx:*),Bash(node:*),Bash(tsc:*),Bash(mkdir:*),Bash(ls:*),Bash(cat:*),Bash(cp:*),Bash(mv:*),Bash(chmod:*),Bash(git:*),Bash(gh:*),Bash(python:*),Bash(pip:*),Bash(jupyter:*)"'
           prompt: |
             You are a dev agent working on a GitHub issue. Read the issue carefully and implement the requested changes.
 
@@ -219,3 +227,4 @@ jobs:
         env:
           LINEAR_ISSUE_REF: ${{ steps.linear.outputs.ref }}
           LINEAR_ISSUE_URL: ${{ steps.linear.outputs.url }}
+          motherduck_token: ${{ secrets.MOTHERDUCK_ACCESS_TOKEN }}

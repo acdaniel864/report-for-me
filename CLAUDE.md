@@ -7,7 +7,7 @@
 
 ## Project Overview
 
-<!-- What this project does in 1-2 sentences. Tech stack. Deployment target. -->
+Writes data analysis reports based on a brief, using juypter notebooks for structured reasearch, accessing data from several sources including mother duck database.
 <!-- Example: "SaaS platform for X (Next.js 15, TypeScript, PostgreSQL). Deployed on Vercel." -->
 
 ## Critical Policies
@@ -16,11 +16,8 @@
      These should also be enforced by hooks in .claude/settings.json, but state them here
      so agents understand WHY the hooks exist. -->
 
-<!-- Examples:
-- **Every database query MUST include tenant scoping (org_id filter). Violation = data breach.**
-- **Never use mock data. This is production. Only real API responses.**
 - **Never commit secrets. Use environment variables.**
--->
+
 
 ## Architecture
 
@@ -80,6 +77,7 @@ This applies to all agents: dev, review, and fix. The review agent should verify
 - **Do not create new tech debt**: No TODO/FIXME/HACK comments unless the issue explicitly calls for a partial implementation. No copy-pasted code when a shared utility exists or should be created. No quick workarounds that bypass the project's established patterns.
 - **Prefer existing abstractions**: If the project has a utility for something (API responses, validation, logging, error handling), use it. Do not create parallel implementations.
 - **Keep changes focused**: Address tech debt only in files you are already modifying for the current task. Do not refactor unrelated code.
+- **Always flag judgement calls:** if some decision you made, especially when it comes to analytics was a judgment call explain the decision in comments. 
 
 ## Headless Agent Guidelines
 
