@@ -1,5 +1,7 @@
 # Fine Wine as a Diversification Play Argument Rebuttals
 
+Note: this project has been started your job is to continue, triple check what has been done before and make sure all notebooks will run locally when tested by me. Cruciall ALL IMAGES NEED TO BE SAVED IN THE dir report-for-me/projects/correlation-diversification/images - this was not done correctly previously. 
+
 We wrote a report about Fine Wine as a diversifier, how it's performed during periods of market stress, it is stored in `projects/correlation-diversification/winefi-diversification-report.md`
 
 Others have written indirect rebuttals, all stored in `projects/correlation-diversification/rebuttals-to-analyse.md`.
