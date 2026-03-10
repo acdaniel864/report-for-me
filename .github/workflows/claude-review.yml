@@ -49,15 +49,18 @@ jobs:
             6. **Tech debt**: Does this PR introduce new tech debt? Flag: TODO/FIXME/HACK comments, copy-pasted code, pattern violations, workarounds that bypass established conventions. Minor tech debt cleanup in touched files is expected and encouraged.
             7. **Code quality**: No dead code, no dead imports, no unnecessary complexity.
 
-            # TODO: Add project-specific review criteria here. Examples:
-            # - Data isolation checks (multi-tenant apps)
-            # - No mock/fake data in production code
-            # - Compliance requirements
-            # - Performance considerations
+            8. **Project-specific (report-for-me)**:
+            - **Secrets**: No hardcoded credentials, API keys, or connection strings. Tokens and DB access must use environment variables only. Flag any literal token, motherduck_token, or .env content in committed files.
+            - **Analytics judgement calls**: If the PR adds or changes data analysis, modelling, or methodology (notebooks, reports, thresholds, filters), check that non-obvious decisions are explained in comments per CLAUDE.md.
+            - **Requirements docs** (docs/requirements/*): Structure should include What, Why, acceptance criteria, and constraints; no embedded secrets.
+            - **Notebooks**: MotherDuck/DB connection must use env (e.g. duckdb.connect("md:") with motherduck_token from env); no credentials in notebook code or committed output.
+            - **Dependencies**: requirements.txt changes are substantive; flag unnecessary or unfamiliar packages.
 
-            # TODO: Define critical paths that require human review. Example:
-            # If the PR touches src/lib/auth/ or src/lib/db/:
-            # - Flag as REQUIRES HUMAN REVIEW in your summary
+            9. **Critical paths — flag "REQUIRES HUMAN REVIEW" in your summary if the PR touches**:
+            - `.github/workflows/*` — changes to permissions, secrets usage, allowed tools, or job logic.
+            - `CLAUDE.md` — project-wide agent instructions.
+            - `.mcp.json` — must only reference env vars (e.g. ${MOTHERDUCK_ACCESS_TOKEN}), never literal tokens.
+            - `requirements.txt` — dependency and supply-chain impact.
 
             ## Important constraints
 

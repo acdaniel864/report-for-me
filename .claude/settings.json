@@ -1,4 +1,5 @@
 {
+  "enableAllProjectMcpServers": false,
   "hooks": {
     "PreToolUse": [
       {
@@ -32,6 +33,13 @@
       "WebSearch"
     ],
     "deny": [
+      "Edit(~/.ssh/**)",
+      "Edit(~/.gnupg/**)",
+      "Edit(~/.aws/**)",
+      "Edit(~/.config/gh/**)",
+      "Edit(~/.git-credentials)",
+      "Read(~/.ssh/id_*)",
+      "Read(~/.gnupg/**)",
       "Edit(.env)",
       "Edit(.env.local)",
       "Edit(.env.production)",

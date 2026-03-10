@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# UV / Python
+.venv/
+
 # Environment
 .env
 .env.local
