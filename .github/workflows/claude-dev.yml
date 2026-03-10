@@ -28,7 +28,7 @@ jobs:
       pull-requests: write
       issues: write
       id-token: write
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - name: Extract Linear issue ID
         id: linear
@@ -152,8 +152,7 @@ jobs:
           trigger_phrase: "@claude"
           label_trigger: "agent:ready"
           assignee_trigger: "claude"
-          # TODO: Adjust --max-turns and --allowedTools for your project
-          claude_args: '--max-turns 40 --allowedTools "Edit,Write,Read,MultiEdit,Glob,Grep,Bash(npm:*),Bash(npx:*),Bash(node:*),Bash(tsc:*),Bash(mkdir:*),Bash(ls:*),Bash(cat:*),Bash(cp:*),Bash(mv:*),Bash(chmod:*),Bash(git:*),Bash(gh:*)"'
+          claude_args: '--max-turns 80 --allowedTools "Edit,Write,Read,MultiEdit,Glob,Grep,Bash(npm:*),Bash(npx:*),Bash(node:*),Bash(tsc:*),Bash(mkdir:*),Bash(ls:*),Bash(cat:*),Bash(cp:*),Bash(mv:*),Bash(chmod:*),Bash(git:*),Bash(gh:*),Bash(python:*),Bash(python3:*),Bash(uv:*),Bash(pip:*),Bash(pip3:*),Bash(jupyter:*),Bash(find:*),Bash(which:*),Bash(echo:*),Bash(export:*),Bash(source:*),Bash(touch:*),Bash(rm:*)"'
           prompt: |
             You are a dev agent working on a GitHub issue. Read the issue carefully and implement the requested changes.
 
