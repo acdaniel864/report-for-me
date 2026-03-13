@@ -35,6 +35,8 @@ We think transparency on this point is important. **The correlation benefit from
 ![Rolling Correlations vs S&P 500](../images/correlation/02_rolling_correlations_vs_sp500.png)
 *Rolling 12-month and 36-month correlations between the Liv-ex 100 and the S&P 500. Correlations rise modestly during acute market stress but remain well below 1.0 across the cycle.*
 
+*Methodology: Liv-ex 100 monthly index data (Liv-ex, January 2000–early 2026) and S&P 500 total return series (Yahoo Finance). Pearson correlations calculated on monthly log-returns using rolling 12-month and 36-month windows. No rebasing applied; crisis periods shaded using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
+
 ---
 
 ## Crisis Performance: Where the Evidence Is Most Compelling
@@ -52,6 +54,8 @@ Crucially, fine wine recovered from its drawdown faster than equity markets. An 
 ![GFC Drawdown Comparison](../images/correlation/04_gfc_drawdown_comparison.png)
 *2008 Global Financial Crisis: indexed performance and rolling drawdown from peak. The Liv-ex 100 (approximately −17%) compared to the S&P 500 (approximately −36%) and FTSE 100. Fine wine recovered its peak valuation faster than equities.*
 
+*Methodology: Liv-ex 100 (Liv-ex index CSV, GBP), S&P 500, and FTSE 100 (Yahoo Finance total return) monthly closing levels. All series indexed to 100 at the GFC peak. Rolling peak-to-trough drawdown calculated as the percentage decline from the prior rolling maximum. GFC crisis window defined as September 2008–March 2009.*
+
 ### 2016 Brexit
 
 The June 2016 Brexit referendum shocked sterling. UK-based equity investors saw significant market turbulence. Fine wine — primarily priced in sterling on the Liv-ex exchange — was relatively insulated from the equity volatility. Even stripping out currency effects, wine delivered a positive return of approximately **+5% in EUR terms** during 2016, a year when equity markets were roiled by political uncertainty.
@@ -64,6 +68,8 @@ The pattern is consistent across all three events: fine wine has not been immune
 
 ![Crisis Period Performance](../images/currency/03_crisis_period_analysis.png)
 *Fine wine and equity returns during the three major stress events: GFC 2008, Brexit 2016, COVID 2020. Wine consistently showed smaller drawdowns in each episode.*
+
+*Methodology: Liv-ex 100 (Liv-ex index CSV, GBP), S&P 500 (Yahoo Finance, USD), and FTSE 100 (Yahoo Finance, GBP) monthly return series. Cumulative total return computed over each defined crisis window: GFC (September 2008–March 2009), Brexit (June–December 2016), and COVID (February–April 2020). Returns shown in each asset's primary market currency.*
 
 ---
 
@@ -78,8 +84,12 @@ Our analysis of specific high-profile wines — Salon Blanc de Blancs, Dom Péri
 ![Individual Wine Price Series](../images/heterogeneity/wine_price_series.png)
 *Price histories for Salon, Dom Pérignon, and Lafite (GBP per 750ml, volume-weighted). Stress periods shaded. The divergence in individual wine price paths illustrates why asset selection within fine wine is as important as the allocation decision itself.*
 
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), covering platform trades from 2005 onwards, identified by LWIN7. Volume-weighted average transaction prices per wine per month in GBP per 750ml equivalent. Stress periods shaded using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
+
 ![Stress Period Performance](../images/heterogeneity/stress_period_performance.png)
 *Best and worst-performing wines during GFC 2008, COVID 2020, and the 2022 rate-rise cycle. Individual wines show wide return dispersion relative to the Liv-ex 100 benchmark.*
+
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) and Liv-ex 100 benchmark (Liv-ex index CSV). Individual wine returns calculated from volume-weighted average prices at LWIN11 level at period start and end. Covers GFC 2008, COVID 2020, and the 2022 rate-rise cycle; best and worst performers ranked by total return within each stress window.*
 
 **This is the central insight: the diversification properties of fine wine at the index level are real, but the investor experience depends critically on which wines are held.** An unsophisticated or poorly-advised wine portfolio could easily be concentrated in wines with poor secondary market liquidity, limited collector demand, or sensitivity to fashion risk — undermining the very diversification benefit that makes the asset class attractive.
 
@@ -98,6 +108,8 @@ This matters because it suggests the diversification benefit is not simply an ar
 ![Custom Index vs Liv-ex](../images/custom_indices/02_custom_vs_livex.png)
 *WineFi custom trade-based index vs Liv-ex 100 and Liv-ex 1000 (rebased to 100, January 2005). Broad directional consistency confirms that the diversification story is not dependent on cherry-picking the most liquid bottles.*
 
+*Methodology: WineFi custom index constructed from the 30 most-traded LWIN7s in the WineFi transaction database (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), weighted by monthly trade volume, from 2005 onwards. Compared against Liv-ex 100 and Liv-ex 1000 from the Liv-ex index CSV. All series rebased to 100 at January 2005. The custom index is subject to survivorship and liquidity-selection bias.*
+
 ---
 
 ## Liquidity: An Honest Assessment
@@ -112,6 +124,8 @@ Fine wine is appropriate for investors with a multi-year time horizon who do not
 
 ![Bid vs Trade Price](../images/liquidity/02_bid_vs_trade_price.png)
 *Buyer bid prices compared to realised transaction prices through the market cycle. Active buyer demand tracked closely with actual trade prices through market stress periods — no evidence of a catastrophic collapse in bids.*
+
+*Methodology: WineFi platform data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), covering buyer bid prices and realised transaction prices from 2005 onwards. Monthly aggregates volume-weighted across all LWIN7s with at least one bid and one trade recorded. Crisis periods marked using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
 
 ---
 

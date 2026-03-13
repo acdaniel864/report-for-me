@@ -87,6 +87,8 @@ Three additional findings are critical:
 currency contribution. 2016 is the clear outlier; most years are dominated by the EUR
 component.*
 
+*Methodology: Liv-ex 1000 annual GBP returns (Liv-ex index CSV, 2000–2025) decomposed using EUR/GBP spot rates (Yahoo Finance). Annual GBP return expressed as the sum of the EUR component (underlying wine price appreciation) and EUR/GBP currency contribution, in percentage points. Calendar years 2000–2025; no rebasing applied.*
+
 ### Our position
 
 The critics make a valid accounting point but draw the wrong investment conclusion.
@@ -157,10 +159,14 @@ The rolling correlation analysis (Notebook 03, `02_rolling_correlations_vs_sp500
 *Chart: 2008 GFC — Indexed performance and rolling drawdown from peak. Liv-ex 100 (~−17%)
 vs S&P 500 (~−36%) and FTSE 100 during the GFC window (red shaded). Wine recovered faster.*
 
+*Methodology: Liv-ex 100 (Liv-ex index CSV, GBP), S&P 500, and FTSE 100 (Yahoo Finance total return) monthly closing levels. All series indexed to 100 at the GFC peak. Rolling peak-to-trough drawdown calculated as the percentage decline from the prior rolling maximum. GFC crisis window defined as September 2008–March 2009.*
+
 ![Rolling Correlations vs S&P 500](../images/correlation/02_rolling_correlations_vs_sp500.png)
 *Chart: 12-month and 36-month rolling correlations between Liv-ex indices and S&P 500,
 with crisis periods shaded. Correlations rise modestly during acute stress but remain
 well below 1.0.*
+
+*Methodology: Liv-ex 100 monthly index data (Liv-ex, January 2000–early 2026) and S&P 500 total return series (Yahoo Finance). Pearson correlations calculated on monthly log-returns using rolling 12-month and 36-month windows. No rebasing applied; crisis periods shaded using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
 
 ### Our position
 
@@ -223,9 +229,13 @@ volume during crises translates into forced price declines.
 median price held flat or rose. Green bars = low volume, price defended. Multiple such
 months visible through 2008–2009.*
 
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) for the GFC window (September 2008–March 2009). Monthly LWIN7 trade counts classified as bottom-quartile (low liquidity) relative to the full 2005–present distribution. Months where median LWIN7 price held flat or rose month-on-month identified as "price defended" observations.*
+
 ![2008 Liquidity Price Change](../images/liquidity/06_2008_liquidity_price_change.png)
 *Chart: GFC 2008 — scatter and box comparison of high-liquidity vs low-liquidity wine
 cohorts. No systematic relationship between trade frequency and price decline.*
+
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) for the GFC period (2007–2009). LWIN7s classified into high-liquidity and low-liquidity cohorts by median monthly trade count across the 2005–present baseline. Price change calculated as percentage change in volume-weighted average price from pre-GFC peak to post-GFC trough.*
 
 ### Our position
 
@@ -286,10 +296,14 @@ this directly:
 Top panel: side-by-side annual comparison. Bottom panel: scatter showing correlation of
 FX impacts. Both assets face similar FX headwinds and tailwinds for a GBP investor.*
 
+*Methodology: Annual EUR/GBP and GBP/USD spot rate changes (Yahoo Finance, 2000–2025) applied to Liv-ex 1000 GBP returns (Liv-ex index CSV) and S&P 500 USD returns respectively. FX contribution measured in percentage points of GBP total return for a GBP-based investor. No rebasing applied; scatter uses calendar year observations.*
+
 ![Crisis Period Analysis](../images/currency/03_crisis_period_analysis.png)
 *Chart: GFC 2008, Brexit 2016, COVID 2020 — wine and S&P 500 returns in local currency
 and GBP. In every crisis, both assets face FX adjustments; the critics' logic applied
 consistently supports the GBP comparison, not undermines it.*
+
+*Methodology: Liv-ex 100 (Liv-ex index CSV, GBP), S&P 500 (Yahoo Finance, USD), and FTSE 100 (Yahoo Finance, GBP) monthly return series. Cumulative total return computed over each crisis window: GFC (September 2008–March 2009), Brexit (June–December 2016), COVID (February–April 2020). Both local-currency and GBP-adjusted S&P 500 returns shown using monthly EUR/GBP and GBP/USD spot rates (Yahoo Finance).*
 
 ### Our position
 
@@ -362,14 +376,20 @@ challenge. Key findings:
 January 2005). Broad directional consistency with meaningful divergence at specific
 turning points.*
 
+*Methodology: WineFi custom index constructed from the 30 most-traded LWIN7s in the WineFi transaction database (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), weighted by monthly trade volume, from 2005 onwards. Compared against Liv-ex 100 and Liv-ex 1000 from the Liv-ex index CSV. All series rebased to 100 at January 2005. The custom index is subject to survivorship and liquidity-selection bias.*
+
 ![Individual Wine Heterogeneity](../images/heterogeneity/wine_price_series.png)
 *Chart: Per-wine VWAP price series (750ml, GBP) for Salon, Dom Pérignon, and Lafite.
 Stress periods shaded. Significant divergence in price paths highlights within-wine
 selection risk.*
 
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), covering platform trades from 2005 onwards, identified by LWIN7. Volume-weighted average transaction prices per wine per month in GBP per 750ml equivalent. Stress periods shaded using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
+
 ![Stress Period Performance](../images/heterogeneity/stress_period_performance.png)
 *Chart: Best and worst performers during GFC 2008, COVID 2020, and 2022 rate rises.
 Individual wines show wide return dispersion vs S&P 500 and Liv-ex benchmarks.*
+
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) and Liv-ex 100 benchmark (Liv-ex index CSV). Individual wine returns calculated from volume-weighted average prices at LWIN11 level at period start and end. Covers GFC 2008, COVID 2020, and the 2022 rate-rise cycle; best and worst performers ranked by total return within each stress window.*
 
 ### Our position
 
@@ -435,6 +455,8 @@ convenience:
 *Chart: Liv-ex 1000 cumulative performance in GBP, EUR, and USD from 2000, rebased to 100.
 Divergence is driven by EUR/GBP and GBP/USD rate moves. Long-run performance is positive
 in all three currencies; 2016 Brexit vote marked with dashed line.*
+
+*Methodology: Liv-ex 1000 monthly returns (Liv-ex index CSV, GBP, January 2000–early 2026) converted to EUR and USD by applying monthly EUR/GBP and GBP/USD spot rates (Yahoo Finance). All three series rebased to 100 at January 2000. The June 2016 Brexit referendum date marked with a dashed vertical line.*
 
 ### Our position
 
