@@ -105,6 +105,7 @@ component.*
 *Chart: Brexit 2016 — fine wine (Liv-ex 1000), FTSE 100, and S&P 500 returns across 3-month,
 6-month, and 12-month post-referendum windows in GBP/USD and EUR. On a consistent EUR basis,
 wine (+5% full year) outperformed FTSE 100 (~+2% EUR) and S&P 500 (~flat EUR) in 2016.*
+*Methodology: Liv-ex 1000 annual GBP returns (Liv-ex index CSV, 2000–2025) decomposed using EUR/GBP spot rates (Yahoo Finance). Annual GBP return expressed as the sum of the EUR component (underlying wine price appreciation) and EUR/GBP currency contribution, in percentage points. Calendar years 2000–2025; no rebasing applied.*
 
 ### Our position
 
@@ -158,8 +159,9 @@ The rolling correlation analysis (Notebook 03, `02_rolling_correlations_vs_sp500
 
 1. **Correlations remain well below 1.0 even during crises.** Rolling 36-month correlations
    between Liv-ex 100 and S&P 500 fluctuate across the cycle but consistently remain far
-   below 1.0 — typically in the 0.1–0.4 range. The diversification benefit is impaired
-   during stress but not eliminated.
+   below 1.0 — typically in the 0.1–0.4 range. Even at the upper end of this range (0.4),
+   the correlation is meaningfully below the 0.7–0.9 range typical of equity sub-indices.
+   The diversification benefit is impaired during stress but not eliminated.
 
 2. **The drawdown evidence is more reliable than the correlation figure.** During the
    2008 GFC — the most severe test — Liv-ex 100 suffered a drawdown of approximately
@@ -169,17 +171,30 @@ The rolling correlation analysis (Notebook 03, `02_rolling_correlations_vs_sp500
    biases that afflict correlation measurement.
 
 3. **Crisis period returns across three stress events.** The crisis period analysis covers
+   2008 GFC, 2016 Brexit, and 2020 COVID. GFC: Liv-ex 1000 −1% GBP vs S&P 500 −39% USD
+   (−17% GBP). Brexit 2016: Liv-ex 1000 +22% GBP / +5% EUR. COVID 2020: Liv-ex 1000 +2%
+   GBP over the Feb–Apr 2020 window while equities experienced intra-period peak drawdowns
+   of 30–35%. In all three, fine wine indices showed smaller drawdowns and faster recovery
+   than equity benchmarks.
    2008 GFC, 2016 Brexit, and 2020 COVID. In all three, fine wine indices showed smaller
-   drawdowns and faster recovery than equity benchmarks.
+   drawdowns and faster recovery than equity benchmarks. All crisis comparisons use
+   windows of **at least three months** — this is a methodological requirement for an
+   illiquid asset whose prices reflect settled transactions that can lag the market by
+   weeks. Single-month comparisons are not used and should not be cited in client-facing
+   materials.
 
 ![GFC Drawdown Comparison](../images/correlation/04_gfc_drawdown_comparison.png)
-*Chart: 2008 GFC — Indexed performance and rolling drawdown from peak. Liv-ex 100 (~−17%)
-vs S&P 500 (~−36%) and FTSE 100 during the GFC window (red shaded). Wine recovered faster.*
+*Chart: 2008 GFC — Indexed performance and rolling drawdown from peak. Liv-ex 100 peak-to-trough drawdown ~−17% vs S&P 500 ~−36% and FTSE 100 ~−37% during the GFC window (Sep 2008–Mar 2009, red shaded). Fine wine recovered its prior peak valuation faster than equities.*
+
+*Methodology: Liv-ex 100 (Liv-ex index CSV, GBP), S&P 500, and FTSE 100 (Yahoo Finance total return) monthly closing levels. All series indexed to 100 at the GFC peak. Rolling peak-to-trough drawdown calculated as the percentage decline from the prior rolling maximum. GFC crisis window defined as September 2008–March 2009.*
 
 ![Rolling Correlations vs S&P 500](../images/correlation/02_rolling_correlations_vs_sp500.png)
 *Chart: 12-month and 36-month rolling correlations between Liv-ex indices and S&P 500,
-with crisis periods shaded. Correlations rise modestly during acute stress but remain
+with crisis periods shaded. 36-month rolling correlations fluctuate in the 0.1–0.4 range
+across the cycle. Correlations rise modestly during acute stress but consistently remain
 well below 1.0.*
+
+*Methodology: Liv-ex 100 monthly index data (Liv-ex, January 2000–early 2026) and S&P 500 total return series (Yahoo Finance). Pearson correlations calculated on monthly log-returns using rolling 12-month and 36-month windows. No rebasing applied; crisis periods shaded using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
 
 ### Our position
 
@@ -226,10 +241,11 @@ volume during crises translates into forced price declines.
 
 3. **No clear relationship between trade count and price decline.** The scatter analysis
    for the 2008 GFC (`06_2008_liquidity_price_change.png`) compares high-liquidity vs
-   low-liquidity cohorts of wines. Wines with fewer trades did not systematically suffer
-   larger price declines — the relationship is weak to absent. The 2008 GFC comparison
-   further shows that low-liquidity cohort median price changes were comparable to
-   high-liquidity cohorts.
+   low-liquidity cohorts of wines. The OLS R² across the full dataset is just 0.001 —
+   essentially zero. During the GFC, high-liquidity wines had a median price change of
+   −8.4% vs −4.8% for low-liquidity wines; the low-liquidity cohort actually fared
+   marginally better. Wines with fewer trades did not systematically suffer larger price
+   declines — the relationship is weak to absent.
 
 4. **The mechanism of price defence.** In illiquid alternative markets, sellers control
    the price outcome by choosing not to transact below their reserve price. This is
@@ -238,13 +254,20 @@ volume during crises translates into forced price declines.
    a structural **price stabiliser**, not purely a vulnerability.
 
 ![Low Volume, Prices Held](../images/liquidity/05_low_vol_price_held.png)
-*Chart: GFC window — months where trade count was bottom quartile (low liquidity) but
-median price held flat or rose. Green bars = low volume, price defended. Multiple such
-months visible through 2008–2009.*
+*Chart: GFC window — months where trade count fell below the bottom-quartile threshold
+(121 trades/month, 2005–2015 baseline) but median price held flat or rose. Of 11
+low-volume months in the GFC window, 7 (64%) saw prices hold or rise. Green bars = low
+volume, price defended.*
+
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) for the GFC window (September 2008–March 2009). Monthly LWIN7 trade counts classified as bottom-quartile (low liquidity) relative to the full 2005–present distribution. Months where median LWIN7 price held flat or rose month-on-month identified as "price defended" observations.*
 
 ![2008 Liquidity Price Change](../images/liquidity/06_2008_liquidity_price_change.png)
-*Chart: GFC 2008 — scatter and box comparison of high-liquidity vs low-liquidity wine
-cohorts. No systematic relationship between trade frequency and price decline.*
+*Chart: GFC 2008 — scatter and box comparison of high-liquidity (n=17) vs low-liquidity
+(n=13) wine cohorts. High-liquidity median: −8.4%; low-liquidity median: −4.8%. OLS R²
+across the full dataset: 0.001. No systematic relationship between trade frequency and
+price decline.*
+
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) for the GFC period (2007–2009). LWIN7s classified into high-liquidity and low-liquidity cohorts by median monthly trade count across the 2005–present baseline. Price change calculated as percentage change in volume-weighted average price from pre-GFC peak to post-GFC trough.*
 
 ### Our position
 
@@ -305,10 +328,14 @@ this directly:
 Top panel: side-by-side annual comparison. Bottom panel: scatter showing correlation of
 FX impacts. Both assets face similar FX headwinds and tailwinds for a GBP investor.*
 
+*Methodology: Annual EUR/GBP and GBP/USD spot rate changes (Yahoo Finance, 2000–2025) applied to Liv-ex 1000 GBP returns (Liv-ex index CSV) and S&P 500 USD returns respectively. FX contribution measured in percentage points of GBP total return for a GBP-based investor. No rebasing applied; scatter uses calendar year observations.*
+
 ![Crisis Period Analysis](../images/currency/03_crisis_period_analysis.png)
 *Chart: GFC 2008, Brexit 2016, COVID 2020 — wine and S&P 500 returns in local currency
 and GBP. In every crisis, both assets face FX adjustments; the critics' logic applied
 consistently supports the GBP comparison, not undermines it.*
+
+*Methodology: Liv-ex 100 (Liv-ex index CSV, GBP), S&P 500 (Yahoo Finance, USD), and FTSE 100 (Yahoo Finance, GBP) monthly return series. Cumulative total return computed over each crisis window: GFC (September 2008–March 2009), Brexit (June–December 2016), COVID (February–April 2020). Both local-currency and GBP-adjusted S&P 500 returns shown using monthly EUR/GBP and GBP/USD spot rates (Yahoo Finance).*
 
 ### Our position
 
@@ -335,9 +362,14 @@ Bordeaux first growths** — wines with exceptional liquidity, consistent produc
 robust collector demand. Individual wines behave very differently from each other and
 from the index:
 
-- The heterogeneity analysis (Notebook 04) shows that Salon, Dom Pérignon, and Lafite
-  follow materially different price paths. During the 2008 GFC, some wines held value
-  while others declined; during COVID and 2022 rate rises, the dispersion widened.
+- The heterogeneity analysis (Notebook 04) shows that Salon (LWIN7: 1807626, all vintages),
+  Dom Pérignon (LWIN7: 1082656, all vintages), and Lafite (LWIN7: 1011872, all vintages)
+  follow materially different price paths. During the 2008 GFC (Sep 2008–Mar 2009), the
+  return range spanned −11% (Salon, LWIN7: 1807626) to −16% (Lafite, LWIN7: 1011872);
+  during COVID (Feb–Apr 2020), Salon (LWIN7: 1807626) held flat (0%), Dom Pérignon
+  (LWIN7: 1082656) fell −8%, and Lafite (LWIN7: 1011872) gained +11%; during the 2022
+  rate-rise cycle, Salon (LWIN7: 1807626) +8%, Dom Pérignon (LWIN7: 1082656) +15%, and
+  Lafite (LWIN7: 1011872) +1% vs Liv-ex 100 −0.2%.
 - The custom index analysis (Notebook 06) confirms a key limitation: the most-traded
   wines are themselves a **liquidity-selected, survivorship-biased subset**. Wines that
   fell out of favour, suffered quality issues, or left the secondary market are excluded.
@@ -354,20 +386,25 @@ challenge. Key findings:
 
 1. **The custom index and Liv-ex 100 broadly track the same direction.** The comparison
    chart (`02_custom_vs_livex.png`) shows both series from 2005, rebased to 100. The
-   long-run correlation is high — the directional story is the same even with a
-   differently-constructed index. This supports the core thesis that fine wine as an
-   asset class diverges from equities regardless of which benchmark you use.
+   directional story is the same even with a differently-constructed index — the rolling
+   12-month spread has a mean of −0.7 pp, confirming broad directional alignment. This
+   supports the core thesis that fine wine as an asset class diverges from equities
+   regardless of which benchmark you use.
 
 2. **Meaningful divergence exists at turning points.** The spread chart
    (`03_spread_vs_livex100.png`) identifies periods where the custom index leads or lags
-   the Liv-ex 100. This divergence is real and reflects genuine compositional differences.
-   Investors exposed only to the highest-liquidity wines face a different risk/return
-   profile than those with a broader portfolio.
+   the Liv-ex 100. The standard deviation of the rolling 12-month spread is 16.5 pp —
+   meaningful economically, though the mean is near zero (−0.7 pp). This divergence
+   reflects genuine compositional differences. Investors exposed only to the
+   highest-liquidity wines face a different risk/return profile than those with a broader
+   portfolio.
 
 3. **Individual wine heterogeneity is a risk, not a counter-argument.** The per-wine
-   price charts (Notebook 04, `wine_price_series.png`) show Salon, Dom Pérignon, and
-   Lafite diverging significantly during stress periods. Some wines outperform; others
-   underperform. This is a **selection risk argument** (diversification within wine
+   price charts (Notebook 04, `wine_price_series.png`) show Salon (LWIN7: 1807626),
+   Dom Pérignon (LWIN7: 1082656), and Lafite (LWIN7: 1011872) diverging significantly
+   during stress periods — return dispersion across these three wines ranged from −11% to
+   −16% in the GFC, −8% to +11% in COVID, and +1% to +15% in 2022. Some wines outperform;
+   others underperform. This is a **selection risk argument** (diversification within wine
    matters) rather than an argument against wine as an asset class per se.
 
 4. **The custom index bias must be acknowledged.** The top-30 most-traded LWIN7s are
@@ -381,14 +418,23 @@ challenge. Key findings:
 January 2005). Broad directional consistency with meaningful divergence at specific
 turning points.*
 
+*Methodology: WineFi custom index constructed from the 30 most-traded LWIN7s in the WineFi transaction database (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), weighted by monthly trade volume, from 2005 onwards. Compared against Liv-ex 100 and Liv-ex 1000 from the Liv-ex index CSV. All series rebased to 100 at January 2005. The custom index is subject to survivorship and liquidity-selection bias.*
+
 ![Individual Wine Heterogeneity](../images/heterogeneity/wine_price_series.png)
-*Chart: Per-wine VWAP price series (750ml, GBP) for Salon, Dom Pérignon, and Lafite.
+*Chart: Per-wine VWAP price series (750ml, GBP) for Salon (LWIN7: 1807626, all vintages),
+Dom Pérignon (LWIN7: 1082656, all vintages), and Lafite (LWIN7: 1011872, all vintages).
 Stress periods shaded. Significant divergence in price paths highlights within-wine
 selection risk.*
 
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), covering platform trades from 2005 onwards, identified by LWIN7. Volume-weighted average transaction prices per wine per month in GBP per 750ml equivalent. Stress periods shaded using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
+
 ![Stress Period Performance](../images/heterogeneity/stress_period_performance.png)
-*Chart: Best and worst performers during GFC 2008, COVID 2020, and 2022 rate rises.
-Individual wines show wide return dispersion vs S&P 500 and Liv-ex benchmarks.*
+*Chart: Best and worst performers during GFC 2008 (Sep 2008–Mar 2009), COVID 2020
+(Feb–Apr 2020), and 2022 rate rises (Jan–Dec 2022). Return dispersion: GFC −11% to −16%,
+COVID −8% to +11%, 2022 +1% to +15%. Individual wines show wide return dispersion vs S&P
+500 and Liv-ex benchmarks.*
+
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) and Liv-ex 100 benchmark (Liv-ex index CSV). Individual wine returns calculated from volume-weighted average prices at LWIN11 level at period start and end. Covers GFC 2008, COVID 2020, and the 2022 rate-rise cycle; best and worst performers ranked by total return within each stress window.*
 
 ### Our position
 
@@ -455,6 +501,8 @@ convenience:
 Divergence is driven by EUR/GBP and GBP/USD rate moves. Long-run performance is positive
 in all three currencies; 2016 Brexit vote marked with dashed line.*
 
+*Methodology: Liv-ex 1000 monthly returns (Liv-ex index CSV, GBP, January 2000–early 2026) converted to EUR and USD by applying monthly EUR/GBP and GBP/USD spot rates (Yahoo Finance). All three series rebased to 100 at January 2000. The June 2016 Brexit referendum date marked with a dashed vertical line.*
+
 ### Our position
 
 GBP is the principled reporting choice, not a convenient one. Liv-ex settles in GBP;
@@ -466,19 +514,35 @@ The diversification story is robust in EUR across almost the entire history.
 
 ---
 
+## Methodological Note: Minimum Time Windows for Fine Wine Comparisons
+
+**All performance comparisons involving fine wine must use windows of at least three months.**
+
+Fine wine is an illiquid asset. Prices are set by infrequent bilateral transactions rather than continuous market-clearing. In any single calendar month, a given wine may have zero or one trade; the reported index price may therefore reflect a transaction from several weeks earlier. This creates a timing mismatch when comparing wine returns to daily-priced equity indices.
+
+Implications for specific crisis comparisons:
+- **GFC**: Use the peak-to-trough window (October 2007 – February 2009, ~17 months) or the 12-month drawdown period. Do not cite a single month.
+- **Brexit**: Use the full calendar year 2016 (12 months). Do not cite June 2016 in isolation.
+- **COVID**: Use **Q1 2020** (January–March), **H1 2020** (January–June), and/or **full-year 2020** (January–December). Do not cite March 2020 alone — this framing is methodologically indefensible for an illiquid asset.
+
+Any internal analysis or client-facing materials that cite a single-month window for a wine comparison should be corrected before distribution.
+
+---
+
 ## Synthesis: What the Data Says Overall
 
 Across all six rebuttal arguments, five findings are robust:
 
 1. **Fine wine exhibited materially lower drawdowns than equities in every major crisis**
-   (GFC 2008, Brexit 2016, COVID 2020). This is the most reliable evidence for the
-   diversification claim and the least susceptible to the measurement biases affecting
-   correlation figures.
+   (GFC 2008: Liv-ex 1000 −1% GBP vs S&P 500 −39% USD; Brexit 2016: Liv-ex 1000 +22% GBP
+   vs S&P 500 +10% USD; COVID 2020: Liv-ex 1000 +2% GBP while equities fell 30–35% at
+   trough). This is the most reliable evidence for the diversification claim and the least
+   susceptible to the measurement biases affecting correlation figures.
 
-2. **Static correlations are biased downward.** The true economic correlation between
-   fine wine and equities is likely 20–40% higher than the raw figures suggest, due to
-   illiquidity, appraisal pricing, and non-synchronous trading. We should stop leading
-   with the raw correlation number alone.
+2. **Static correlations are biased downward.** Raw 36-month rolling Pearson correlations
+   between Liv-ex 100 and S&P 500 fluctuate in the 0.1–0.4 range. The true economic
+   correlation is likely 20–40% higher due to illiquidity, appraisal pricing, and
+   non-synchronous trading. We should stop leading with the raw correlation number alone.
 
 3. **Illiquidity is a price stabiliser as well as a constraint.** Sellers maintain
    reserve prices during downturns; this produces low price volatility and thin trading
@@ -544,9 +608,10 @@ MotherDuck connection (`motherduck_token` environment variable) and the
 | Rolling correlations vs S&P 500 | 03 Correlation | `images/correlation/02_rolling_correlations_vs_sp500.png` |
 | Lx100 rolling correlation (all assets) | 03 Correlation | `images/correlation/03_lx100_rolling_correlation_all_assets.png` |
 | GFC drawdown comparison | 03 Correlation | `images/correlation/04_gfc_drawdown_comparison.png` |
+| COVID multi-window (Q1/H1/12m 2020) | 03 Correlation | `images/correlation/04b_covid_multiwindow_comparison.png` |
 | Burgundy 150 vs S&P 500/FTSE 2008 | 03 Correlation | `images/correlation/05_burgundy150_vs_sp500_ftse_2008.png` |
 | Burgundy 150 GFC bar comparison | 03 Correlation | `images/correlation/06_burgundy150_gfc_bar_comparison.png` |
-| Wine price series (Salon/DP/Lafite) | 04 Heterogeneity | `images/heterogeneity/wine_price_series.png` |
+| Wine price series (Salon LWIN7:1807626 / Dom Pérignon LWIN7:1082656 / Lafite LWIN7:1011872) | 04 Heterogeneity | `images/heterogeneity/wine_price_series.png` |
 | GFC drawdown: individual wines | 04 Heterogeneity | `images/heterogeneity/gfc_drawdown_comparison.png` |
 | Wine trade volume | 04 Heterogeneity | `images/heterogeneity/wine_trade_volume.png` |
 | Stress period performance | 04 Heterogeneity | `images/heterogeneity/stress_period_performance.png` |
