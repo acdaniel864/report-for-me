@@ -110,6 +110,26 @@ Our analysis of specific high-profile wines — Salon Blanc de Blancs (LWIN7: 18
 
 *Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) and Liv-ex 100 benchmark (Liv-ex index CSV). Individual wine returns calculated from volume-weighted average prices at LWIN11 level at period start and end. Covers GFC 2008, COVID 2020, and the 2022 rate-rise cycle; best and worst performers ranked by total return within each stress window.*
 
+### GFC Deep-Dive: Six Additional High-Profile Wines
+
+To test whether the GFC resilience story holds beyond Bordeaux and Champagne, we extended the analysis to six further wines spanning Italian super-Tuscans, Burgundy grands crus, and grower Champagne. All six were evaluated over the GFC window (July 2007–March 2009), with Liv-ex 100 as benchmark (−19.9% over the same window):
+
+| Wine | LWIN7 | GFC Return (Jul 2007–Mar 2009) |
+|---|---|---|
+| Soldera Case Basse, 100% Sangiovese, Toscana | 1226504 | −6.6% |
+| Jacques Selosse, Millesime | 1226155 | −8.1% |
+| Domaine Armand Rousseau, Chambertin Grand Cru | 1057005 | −9.3% |
+| Domaine de la Romanee-Conti, Echezeaux Grand Cru | 1028658 | −9.3% |
+| Sassicaia, Tenuta San Guido, Bolgheri | 1102037 | −16.3% |
+| Masseto, Toscana | 1160743 | −18.2% |
+
+The top three performers — Soldera Case Basse (LWIN7: 1226504, −6.6%), Selosse Millesime (LWIN7: 1226155, −8.1%), and Rousseau Chambertin (LWIN7: 1057005, −9.3%) — all outperformed the Liv-ex 100 benchmark by more than 10 percentage points and held up materially better than even the best of the original three focal wines. The Burgundy and ultra-rare Italian wines showed exceptional resilience, reflecting their collector-driven demand base and relative insulation from financial-market sentiment. At the other end of the spectrum, Masseto (LWIN7: 1160743, −18.2%) and Sassicaia (LWIN7: 1102037, −16.3%) tracked more closely with equities, underscoring that GFC resilience is not uniform across fine wine categories.
+
+![GFC Extended Comparison](../images/heterogeneity/gfc_extended_comparison.png)
+*GFC performance of six new LWIN7s (indexed to 100 at July 2007). Solid lines = top three GFC performers; dashed = others. Faint grey line = Liv-ex 100 benchmark. Data source: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`).*
+
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), volume-weighted average prices per LWIN7 per month in GBP per 750ml equivalent. GFC window: July 2007–March 2009. Liv-ex 100 from `liv-ex_index_history.csv`. Top performers defined as the 3 new LWIN7s with the highest (least negative) GFC total return. All series indexed to 100 at July 2007. Where fewer than 2 traded months exist in the window, data is noted as insufficient rather than estimated.*
+
 **This is the central insight: the diversification properties of fine wine at the index level are real, but the investor experience depends critically on which wines are held.** An unsophisticated or poorly-advised wine portfolio could easily be concentrated in wines with poor secondary market liquidity, limited collector demand, or sensitivity to fashion risk — undermining the very diversification benefit that makes the asset class attractive.
 
 Conversely, a carefully selected portfolio of wines with strong underlying demand fundamentals, from sought-after appellations and vintages, demonstrates the crisis resilience that the index data shows in aggregate.
