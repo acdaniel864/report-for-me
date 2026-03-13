@@ -153,7 +153,11 @@ The rolling correlation analysis (Notebook 03, `02_rolling_correlations_vs_sp500
 
 3. **Crisis period returns across three stress events.** The crisis period analysis covers
    2008 GFC, 2016 Brexit, and 2020 COVID. In all three, fine wine indices showed smaller
-   drawdowns and faster recovery than equity benchmarks.
+   drawdowns and faster recovery than equity benchmarks. All crisis comparisons use
+   windows of **at least three months** — this is a methodological requirement for an
+   illiquid asset whose prices reflect settled transactions that can lag the market by
+   weeks. Single-month comparisons are not used and should not be cited in client-facing
+   materials.
 
 ![GFC Drawdown Comparison](../images/correlation/04_gfc_drawdown_comparison.png)
 *Chart: 2008 GFC — Indexed performance and rolling drawdown from peak. Liv-ex 100 (~−17%)
@@ -469,6 +473,21 @@ The diversification story is robust in EUR across almost the entire history.
 
 ---
 
+## Methodological Note: Minimum Time Windows for Fine Wine Comparisons
+
+**All performance comparisons involving fine wine must use windows of at least three months.**
+
+Fine wine is an illiquid asset. Prices are set by infrequent bilateral transactions rather than continuous market-clearing. In any single calendar month, a given wine may have zero or one trade; the reported index price may therefore reflect a transaction from several weeks earlier. This creates a timing mismatch when comparing wine returns to daily-priced equity indices.
+
+Implications for specific crisis comparisons:
+- **GFC**: Use the peak-to-trough window (October 2007 – February 2009, ~17 months) or the 12-month drawdown period. Do not cite a single month.
+- **Brexit**: Use the full calendar year 2016 (12 months). Do not cite June 2016 in isolation.
+- **COVID**: Use **Q1 2020** (January–March), **H1 2020** (January–June), and/or **full-year 2020** (January–December). Do not cite March 2020 alone — this framing is methodologically indefensible for an illiquid asset.
+
+Any internal analysis or client-facing materials that cite a single-month window for a wine comparison should be corrected before distribution.
+
+---
+
 ## Synthesis: What the Data Says Overall
 
 Across all six rebuttal arguments, five findings are robust:
@@ -547,6 +566,7 @@ MotherDuck connection (`motherduck_token` environment variable) and the
 | Rolling correlations vs S&P 500 | 03 Correlation | `images/correlation/02_rolling_correlations_vs_sp500.png` |
 | Lx100 rolling correlation (all assets) | 03 Correlation | `images/correlation/03_lx100_rolling_correlation_all_assets.png` |
 | GFC drawdown comparison | 03 Correlation | `images/correlation/04_gfc_drawdown_comparison.png` |
+| COVID multi-window (Q1/H1/12m 2020) | 03 Correlation | `images/correlation/04b_covid_multiwindow_comparison.png` |
 | Burgundy 150 vs S&P 500/FTSE 2008 | 03 Correlation | `images/correlation/05_burgundy150_vs_sp500_ftse_2008.png` |
 | Burgundy 150 GFC bar comparison | 03 Correlation | `images/correlation/06_burgundy150_gfc_bar_comparison.png` |
 | Wine price series (Salon/DP/Lafite) | 04 Heterogeneity | `images/heterogeneity/wine_price_series.png` |
