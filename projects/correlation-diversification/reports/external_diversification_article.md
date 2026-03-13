@@ -33,7 +33,7 @@ There is, however, an important caveat: these correlations are likely somewhat u
 We think transparency on this point is important. **The correlation benefit from fine wine is real — but investors should not take raw correlation figures at face value.** The stronger evidence lies elsewhere.
 
 ![Rolling Correlations vs S&P 500](../images/correlation/02_rolling_correlations_vs_sp500.png)
-*Rolling 12-month and 36-month correlations between the Liv-ex 100 and the S&P 500. Correlations rise modestly during acute market stress but remain well below 1.0 across the cycle.*
+*Rolling 12-month and 36-month correlations between the Liv-ex 100 and the S&P 500. 36-month rolling correlations fluctuate in the 0.1–0.4 range across the full cycle. Correlations rise modestly during acute market stress but consistently remain well below 1.0.*
 
 ---
 
@@ -58,12 +58,12 @@ The June 2016 Brexit referendum shocked sterling. UK-based equity investors saw 
 
 ### 2020 COVID
 
-The COVID crash in March 2020 saw global equity markets fall 30–35% in weeks. Fine wine indices showed materially smaller drawdowns and recovered their losses faster as institutional and private collector demand held up through the crisis.
+The COVID crash in March 2020 saw global equity markets fall 30–35% in weeks. Fine wine indices showed materially smaller drawdowns — the Liv-ex 1000 returned approximately +2% in GBP terms over the February–April 2020 window while individual wines ranged from −8% (Dom Pérignon, LWIN7: 1082656) to flat (Salon, LWIN7: 1807626) to +11% (Lafite, LWIN7: 1011872) — and recovered their losses faster as institutional and private collector demand held up through the crisis.
 
 The pattern is consistent across all three events: fine wine has not been immune to market stress, but it has been a shock absorber — not an amplifier.
 
 ![Crisis Period Performance](../images/currency/03_crisis_period_analysis.png)
-*Fine wine and equity returns during the three major stress events: GFC 2008, Brexit 2016, COVID 2020. Wine consistently showed smaller drawdowns in each episode.*
+*Fine wine and equity returns during the three major stress events. GFC 2008: Liv-ex 1000 −1% GBP vs S&P 500 −39% USD (−17% GBP) over the crisis window. Brexit 2016: Liv-ex 1000 +22% GBP / +5% EUR. COVID 2020: Liv-ex 1000 +2% GBP over the Feb–Apr 2020 period while global equities suffered intra-period peak drawdowns of 30–35%. In all three episodes, fine wine delivered materially smaller drawdowns than equity benchmarks.*
 
 ---
 
@@ -73,13 +73,13 @@ Here is where the conversation becomes more nuanced — and more important for s
 
 Fine wine is not a homogeneous asset class. The Liv-ex 100 index tracks the 100 most actively traded investment-grade wines, weighted toward Bordeaux first growths. Individual wines, however, can behave very differently from the index and from each other.
 
-Our analysis of specific high-profile wines — Salon Blanc de Blancs, Dom Pérignon, and Château Lafite-Rothschild — shows strikingly different price trajectories during market stress periods. During the 2008 GFC, some wines held their value while others declined. During the COVID shock and the 2022 rate-rise cycle, the dispersion widened further. Some wines outperformed the index significantly; others underperformed.
+Our analysis of specific high-profile wines — Salon Blanc de Blancs (LWIN7: 1807626, all vintages), Dom Pérignon (LWIN7: 1082656, all vintages), and Château Lafite-Rothschild (LWIN7: 1011872, all vintages) — shows strikingly different price trajectories during market stress periods. During the 2008 GFC, individual wines showed a wide return range: Salon −11%, Dom Pérignon −15%, and Lafite −16% over the September 2008–March 2009 window. During the COVID shock (February–April 2020), dispersion widened further — Salon was flat (0%), Dom Pérignon fell −8%, while Lafite gained +11%. In the 2022 rate-rise cycle, all three outperformed the Liv-ex 100 (−0.2%): Salon +8%, Dom Pérignon +15%, Lafite +1%.
 
 ![Individual Wine Price Series](../images/heterogeneity/wine_price_series.png)
-*Price histories for Salon, Dom Pérignon, and Lafite (GBP per 750ml, volume-weighted). Stress periods shaded. The divergence in individual wine price paths illustrates why asset selection within fine wine is as important as the allocation decision itself.*
+*Price histories for Salon (LWIN7: 1807626), Dom Pérignon (LWIN7: 1082656), and Lafite (LWIN7: 1011872) (GBP per 750ml, volume-weighted; all vintages aggregated). Stress periods shaded. The divergence in individual wine price paths illustrates why asset selection within fine wine is as important as the allocation decision itself.*
 
 ![Stress Period Performance](../images/heterogeneity/stress_period_performance.png)
-*Best and worst-performing wines during GFC 2008, COVID 2020, and the 2022 rate-rise cycle. Individual wines show wide return dispersion relative to the Liv-ex 100 benchmark.*
+*Best and worst-performing wines during GFC 2008 (Sep 2008–Mar 2009), COVID 2020 (Feb–Apr 2020), and the 2022 rate-rise cycle (Jan–Dec 2022). Return range at the individual wine level: −16% to −11% in the GFC, −8% to +11% in COVID, +1% to +15% in 2022. Wide dispersion relative to the Liv-ex 100 benchmark highlights within-wine selection risk.*
 
 **This is the central insight: the diversification properties of fine wine at the index level are real, but the investor experience depends critically on which wines are held.** An unsophisticated or poorly-advised wine portfolio could easily be concentrated in wines with poor secondary market liquidity, limited collector demand, or sensitivity to fashion risk — undermining the very diversification benefit that makes the asset class attractive.
 
@@ -96,7 +96,7 @@ We constructed an alternative index using WineFi's own transaction data: a broad
 This matters because it suggests the diversification benefit is not simply an artefact of measuring the top tier of the market. A broader portfolio of fine wine, professionally selected and managed, has exhibited the same fundamental decoupling from equity market cycles.
 
 ![Custom Index vs Liv-ex](../images/custom_indices/02_custom_vs_livex.png)
-*WineFi custom trade-based index vs Liv-ex 100 and Liv-ex 1000 (rebased to 100, January 2005). Broad directional consistency confirms that the diversification story is not dependent on cherry-picking the most liquid bottles.*
+*WineFi custom trade-based index vs Liv-ex 100 and Liv-ex 1000 (rebased to 100, January 2005). The rolling 12-month spread between the custom index and Liv-ex 100 has a mean of −0.7 pp and standard deviation of 16.5 pp — directionally consistent but with meaningful divergence at turning points. Broad directional alignment confirms that the diversification story is not dependent on cherry-picking the most liquid bottles.*
 
 ---
 
@@ -104,7 +104,7 @@ This matters because it suggests the diversification benefit is not simply an ar
 
 Fine wine is not as liquid as a listed equity. An investor cannot sell a wine portfolio at a quoted price in minutes. This is a genuine constraint, and one that shapes who fine wine is — and is not — right for.
 
-What the data does challenge is the idea that illiquidity means price vulnerability during crises. Our analysis of trading patterns during the 2008 GFC found no systematic relationship between a wine's trading frequency and the size of its price decline. Wines with fewer buyers in stress periods did not fall more sharply than well-traded wines.
+What the data does challenge is the idea that illiquidity means price vulnerability during crises. Our analysis of trading patterns during the 2008 GFC found no systematic relationship between a wine's trading frequency and the size of its price decline — the OLS R² across the full dataset is effectively zero (0.001). The high-liquidity wine cohort had a median GFC price change of −8%, while the low-liquidity cohort had a median of −5%: wines with fewer buyers in stress periods did not fall more sharply than well-traded wines.
 
 The mechanism is intuitive: sellers in the wine market can — and do — choose not to transact below their reserve price. Unlike shareholders in a listed company facing margin calls or institutional redemptions, wine owners facing a difficult market can simply hold. This seller discipline is a structural feature of the market that contributes to price stability during stress.
 
@@ -119,7 +119,7 @@ Fine wine is appropriate for investors with a multi-year time horizon who do not
 
 The data supports a clear and defensible position:
 
-**Fine wine has demonstrated genuine crisis resilience.** In every major market stress of the past 20 years, investment-grade fine wine has shown smaller peak-to-trough drawdowns than global equity indices. This is the strongest evidence for the diversification case.
+**Fine wine has demonstrated genuine crisis resilience.** In every major market stress of the past 20 years, investment-grade fine wine has shown smaller peak-to-trough drawdowns than global equity indices — approximately −17% for the Liv-ex 100 in the GFC vs −36% for the S&P 500; +2% for the Liv-ex 1000 in GBP terms during the COVID window vs intra-period equity drawdowns of 30–35%. This is the strongest evidence for the diversification case.
 
 **The diversification benefit is asset-specific.** The index-level evidence is compelling, but individual wine performance is highly variable. The difference between a well-selected wine portfolio and a poorly-selected one — in terms of crisis resilience, secondary market liquidity, and long-run returns — is substantial. This is not an asset class where a passive, undifferentiated approach serves investors well.
 
@@ -131,7 +131,7 @@ The data supports a clear and defensible position:
 
 ## Conclusion
 
-Fine wine is a genuinely differentiated asset class. Its price dynamics are driven by fundamentals — scarcity, provenance, collector demand — that have little in common with the forces driving equity and bond markets. That structural independence has delivered measurable crisis resilience: smaller losses in 2008, 2016, and 2020 than equity benchmarks suffered.
+Fine wine is a genuinely differentiated asset class. Its price dynamics are driven by fundamentals — scarcity, provenance, collector demand — that have little in common with the forces driving equity and bond markets. That structural independence has delivered measurable crisis resilience: in 2008 the Liv-ex 100 fell approximately −17% peak-to-trough vs −36% for equities; in 2016 it returned +22% GBP (+5% EUR); in 2020 the Liv-ex 1000 returned +2% GBP while equities fell 30–35% at their intra-period trough.
 
 The honest version of the investment case also acknowledges the limits: correlation figures for illiquid assets require careful interpretation; individual wine selection determines whether an investor captures the asset class premium; and fine wine requires patient capital.
 
