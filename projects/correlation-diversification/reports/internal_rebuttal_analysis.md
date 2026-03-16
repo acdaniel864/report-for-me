@@ -363,12 +363,12 @@ robust collector demand. Individual wines behave very differently from each othe
 from the index:
 
 - The heterogeneity analysis (Notebook 04) shows that Salon (LWIN7: 1807626, all vintages),
-  Dom Pérignon (LWIN7: 1082656, all vintages), and Lafite (LWIN7: 1011872, all vintages)
+  DRC Echezeaux (LWIN7: 1028658, all vintages), and Lafite (LWIN7: 1011872, all vintages)
   follow materially different price paths. During the 2008 GFC (Sep 2008–Mar 2009), the
   return range spanned −11% (Salon, LWIN7: 1807626) to −16% (Lafite, LWIN7: 1011872);
-  during COVID (Feb–Apr 2020), Salon (LWIN7: 1807626) held flat (0%), Dom Pérignon
-  (LWIN7: 1082656) fell −8%, and Lafite (LWIN7: 1011872) gained +11%; during the 2022
-  rate-rise cycle, Salon (LWIN7: 1807626) +8%, Dom Pérignon (LWIN7: 1082656) +15%, and
+  during COVID (Feb–Apr 2020), Salon (LWIN7: 1807626) held flat (0%), DRC Echezeaux
+  (LWIN7: 1028658) fell −8%, and Lafite (LWIN7: 1011872) gained +11%; during the 2022
+  rate-rise cycle, Salon (LWIN7: 1807626) +8%, DRC Echezeaux (LWIN7: 1028658) +15%, and
   Lafite (LWIN7: 1011872) +1% vs Liv-ex 100 −0.2%.
 - An extended GFC analysis (July 2007–March 2009) of six further wines — Masseto (LWIN7:
   1160743), DRC Echezeaux (LWIN7: 1028658), Rousseau Chambertin (LWIN7: 1057005),
@@ -407,7 +407,7 @@ challenge. Key findings:
 
 3. **Individual wine heterogeneity is a risk, not a counter-argument.** The per-wine
    price charts (Notebook 04, `wine_price_series.png`) show Salon (LWIN7: 1807626),
-   Dom Pérignon (LWIN7: 1082656), and Lafite (LWIN7: 1011872) diverging significantly
+   DRC Echezeaux (LWIN7: 1028658), and Lafite (LWIN7: 1011872) diverging significantly
    during stress periods — return dispersion across these three wines ranged from −11% to
    −16% in the GFC, −8% to +11% in COVID, and +1% to +15% in 2022. The extended GFC
    analysis across six further LWIN7s (`gfc_extended_comparison.png`) confirms that
@@ -432,7 +432,7 @@ turning points.*
 
 ![Individual Wine Heterogeneity](../images/heterogeneity/wine_price_series.png)
 *Chart: Per-wine VWAP price series (750ml, GBP) for Salon (LWIN7: 1807626, all vintages),
-Dom Pérignon (LWIN7: 1082656, all vintages), and Lafite (LWIN7: 1011872, all vintages).
+DRC Echezeaux (LWIN7: 1028658, all vintages), and Lafite (LWIN7: 1011872, all vintages).
 Stress periods shaded. Significant divergence in price paths highlights within-wine
 selection risk.*
 
@@ -448,7 +448,7 @@ COVID −8% to +11%, 2022 +1% to +15%. Individual wines show wide return dispers
 
 #### Extended GFC Analysis: Six Additional LWIN7s
 
-To pre-empt the objection that GFC resilience is confined to blue-chip Bordeaux and Salon/Dom Pérignon, we ran GFC performance for six further wines spanning Italian super-Tuscans, Burgundy grands crus, and grower Champagne (July 2007–March 2009, indexed to 100 at July 2007; Liv-ex 100 benchmark: −19.9% over the window):
+To pre-empt the objection that GFC resilience is confined to blue-chip Bordeaux and Salon, we ran GFC performance for six further wines spanning Italian super-Tuscans, Burgundy grands crus, and grower Champagne (July 2007–March 2009, indexed to 100 at July 2007; Liv-ex 100 benchmark: −19.9% over the window):
 
 | Wine | LWIN7 | GFC Return (Jul 2007–Mar 2009) | vs Liv-ex 100 |
 |---|---|---|---|
@@ -646,7 +646,7 @@ MotherDuck connection (`motherduck_token` environment variable) and the
 | COVID multi-window (Q1/H1/12m 2020) | 03 Correlation | `images/correlation/04b_covid_multiwindow_comparison.png` |
 | Burgundy 150 vs S&P 500/FTSE 2008 | 03 Correlation | `images/correlation/05_burgundy150_vs_sp500_ftse_2008.png` |
 | Burgundy 150 GFC bar comparison | 03 Correlation | `images/correlation/06_burgundy150_gfc_bar_comparison.png` |
-| Wine price series (Salon LWIN7:1807626 / Dom Pérignon LWIN7:1082656 / Lafite LWIN7:1011872) | 04 Heterogeneity | `images/heterogeneity/wine_price_series.png` |
+| Wine price series (Salon LWIN7:1807626 / DRC Echezeaux LWIN7:1028658 / Lafite LWIN7:1011872) | 04 Heterogeneity | `images/heterogeneity/wine_price_series.png` |
 | GFC drawdown: individual wines + top new LWIN7s | 04 Heterogeneity | `images/heterogeneity/gfc_drawdown_comparison.png` |
 | Wine trade volume | 04 Heterogeneity | `images/heterogeneity/wine_trade_volume.png` |
 | Stress period performance (incl. new LWIN7s) | 04 Heterogeneity | `images/heterogeneity/stress_period_performance.png` |
