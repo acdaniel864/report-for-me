@@ -71,7 +71,7 @@ The pattern is clear: while partially driven by the same sterling weakness that 
 
 ### 2020 COVID
 
-The COVID crash in March 2020 saw global equity markets fall 30–35% in weeks. Fine wine indices showed materially smaller drawdowns — the Liv-ex 1000 returned approximately +2% in GBP terms over the February–April 2020 window while individual wines ranged from −8% (Dom Pérignon, LWIN7: 1082656) to flat (Salon, LWIN7: 1807626) to +11% (Lafite, LWIN7: 1011872) — and recovered their losses faster as institutional and private collector demand held up through the crisis.
+The COVID crash in March 2020 saw global equity markets fall 30–35% in weeks. Fine wine indices showed materially smaller drawdowns — the Liv-ex 1000 returned approximately +2% in GBP terms over the February–April 2020 window while individual wines ranged from −8% (Dom Pérignon) to flat (Salon) to +11% (Lafite) — and recovered their losses faster as institutional and private collector demand held up through the crisis.
 > **Methodological note**: Fine wine is an illiquid asset — prices reflect settled transactions, which can lag the market by weeks. Comparing fine wine performance over a single month is not meaningful. We use Q1 2020, H1 2020, and full-year 2020 windows to ensure a fair and representative picture.
 
 Global equity markets fell sharply in Q1 2020 as the COVID-19 pandemic spread: the S&P 500 declined approximately **20% over Q1 2020** and the FTSE 100 fell by a comparable amount. Over the same three-month window, the Liv-ex 100 showed materially smaller drawdowns, as the illiquid nature of the wine market prevented the forced selling that drove equity indices lower.
@@ -98,37 +98,37 @@ Here is where the conversation becomes more nuanced — and more important for s
 
 Fine wine is not a homogeneous asset class. The Liv-ex 100 index tracks the 100 most actively traded investment-grade wines, weighted toward Bordeaux first growths. Individual wines, however, can behave very differently from the index and from each other.
 
-Our analysis of specific high-profile wines — Salon Blanc de Blancs (LWIN7: 1807626, all vintages), Dom Pérignon (LWIN7: 1082656, all vintages), and Château Lafite-Rothschild (LWIN7: 1011872, all vintages) — shows strikingly different price trajectories during market stress periods. During the 2008 GFC, individual wines showed a wide return range: Salon −11%, Dom Pérignon −15%, and Lafite −16% over the September 2008–March 2009 window. During the COVID shock (February–April 2020), dispersion widened further — Salon was flat (0%), Dom Pérignon fell −8%, while Lafite gained +11%. In the 2022 rate-rise cycle, all three outperformed the Liv-ex 100 (−0.2%): Salon +8%, Dom Pérignon +15%, Lafite +1%.
+Our analysis of specific high-profile wines — Salon Blanc de Blancs (all vintages), Dom Pérignon (all vintages), and Château Lafite-Rothschild (all vintages) — shows strikingly different price trajectories during market stress periods. During the 2008 GFC, individual wines showed a wide return range: Salon −11%, Dom Pérignon −15%, and Lafite −16% over the September 2008–March 2009 window. During the COVID shock (February–April 2020), dispersion widened further — Salon was flat (0%), Dom Pérignon fell −8%, while Lafite gained +11%. In the 2022 rate-rise cycle, all three outperformed the Liv-ex 100 (−0.2%): Salon +8%, Dom Pérignon +15%, Lafite +1%.
 
 ![Individual Wine Price Series](../images/heterogeneity/wine_price_series.png)
-*Price histories for Salon (LWIN7: 1807626), Dom Pérignon (LWIN7: 1082656), and Lafite (LWIN7: 1011872) (GBP per 750ml, volume-weighted; all vintages aggregated). Stress periods shaded. The divergence in individual wine price paths illustrates why asset selection within fine wine is as important as the allocation decision itself.*
+*Price histories for Salon Blanc de Blancs, Dom Pérignon, and Lafite (GBP per 750ml, volume-weighted; all vintages aggregated). Stress periods shaded. The divergence in individual wine price paths illustrates why asset selection within fine wine is as important as the allocation decision itself.*
 
-*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), covering platform trades from 2005 onwards, identified by LWIN7. Volume-weighted average transaction prices per wine per month in GBP per 750ml equivalent. Stress periods shaded using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
+*Methodology: WineFi proprietary trade data, covering platform trades from 2005 onwards. Volume-weighted average transaction prices per wine per month in GBP per 750ml equivalent. Stress periods shaded using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
 
 ![Stress Period Performance](../images/heterogeneity/stress_period_performance.png)
 *Best and worst-performing wines during GFC 2008 (Sep 2008–Mar 2009), COVID 2020 (Feb–Apr 2020), and the 2022 rate-rise cycle (Jan–Dec 2022). Return range at the individual wine level: −16% to −11% in the GFC, −8% to +11% in COVID, +1% to +15% in 2022. Wide dispersion relative to the Liv-ex 100 benchmark highlights within-wine selection risk.*
 
-*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) and Liv-ex 100 benchmark (Liv-ex index CSV). Individual wine returns calculated from volume-weighted average prices at LWIN11 level at period start and end. Covers GFC 2008, COVID 2020, and the 2022 rate-rise cycle; best and worst performers ranked by total return within each stress window.*
+*Methodology: WineFi proprietary trade data and Liv-ex 100 benchmark (Liv-ex index CSV). Individual wine returns calculated from volume-weighted average prices at period start and end. Covers GFC 2008, COVID 2020, and the 2022 rate-rise cycle; best and worst performers ranked by total return within each stress window.*
 
 ### GFC Deep-Dive: Six Additional High-Profile Wines
 
 To test whether the GFC resilience story holds beyond Bordeaux and Champagne, we extended the analysis to six further wines spanning Italian super-Tuscans, Burgundy grands crus, and grower Champagne. All six were evaluated over the GFC window (July 2007–March 2009), with Liv-ex 100 as benchmark (−19.9% over the same window):
 
-| Wine | LWIN7 | GFC Return (Jul 2007–Mar 2009) |
-|---|---|---|
-| Soldera Case Basse, 100% Sangiovese, Toscana | 1226504 | −6.6% |
-| Jacques Selosse, Millesime | 1226155 | −8.1% |
-| Domaine Armand Rousseau, Chambertin Grand Cru | 1057005 | −9.3% |
-| Domaine de la Romanee-Conti, Echezeaux Grand Cru | 1028658 | −9.3% |
-| Sassicaia, Tenuta San Guido, Bolgheri | 1102037 | −16.3% |
-| Masseto, Toscana | 1160743 | −18.2% |
+| Wine | GFC Return (Jul 2007–Mar 2009) |
+|---|---|
+| Soldera Case Basse, 100% Sangiovese, Toscana | −6.6% |
+| Jacques Selosse, Millesime | −8.1% |
+| Domaine Armand Rousseau, Chambertin Grand Cru | −9.3% |
+| Domaine de la Romanee-Conti, Echezeaux Grand Cru | −9.3% |
+| Sassicaia, Tenuta San Guido, Bolgheri | −16.3% |
+| Masseto, Toscana | −18.2% |
 
-The top three performers — Soldera Case Basse (LWIN7: 1226504, −6.6%), Selosse Millesime (LWIN7: 1226155, −8.1%), and Rousseau Chambertin (LWIN7: 1057005, −9.3%) — all outperformed the Liv-ex 100 benchmark by more than 10 percentage points and held up materially better than even the best of the original three focal wines. The Burgundy and ultra-rare Italian wines showed exceptional resilience, reflecting their collector-driven demand base and relative insulation from financial-market sentiment. At the other end of the spectrum, Masseto (LWIN7: 1160743, −18.2%) and Sassicaia (LWIN7: 1102037, −16.3%) tracked more closely with equities, underscoring that GFC resilience is not uniform across fine wine categories.
+The top three performers — Soldera Case Basse (−6.6%), Selosse Millesime (−8.1%), and Rousseau Chambertin (−9.3%) — all outperformed the Liv-ex 100 benchmark by more than 10 percentage points and held up materially better than even the best of the original three focal wines. The Burgundy and ultra-rare Italian wines showed exceptional resilience, reflecting their collector-driven demand base and relative insulation from financial-market sentiment. At the other end of the spectrum, Masseto (−18.2%) and Sassicaia (−16.3%) tracked more closely with equities, underscoring that GFC resilience is not uniform across fine wine categories.
 
 ![GFC Extended Comparison](../images/heterogeneity/gfc_extended_comparison.png)
-*GFC performance of six new LWIN7s (indexed to 100 at July 2007). Solid lines = top three GFC performers; dashed = others. Faint grey line = Liv-ex 100 benchmark. Data source: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`).*
+*GFC performance of six additional wines (indexed to 100 at July 2007). Solid lines = top three GFC performers; dashed = others. Faint grey line = Liv-ex 100 benchmark. Data source: WineFi proprietary trade data.*
 
-*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), volume-weighted average prices per LWIN7 per month in GBP per 750ml equivalent. GFC window: July 2007–March 2009. Liv-ex 100 from `liv-ex_index_history.csv`. Top performers defined as the 3 new LWIN7s with the highest (least negative) GFC total return. All series indexed to 100 at July 2007. Where fewer than 2 traded months exist in the window, data is noted as insufficient rather than estimated.*
+*Methodology: WineFi proprietary trade data, volume-weighted average prices per wine per month in GBP per 750ml equivalent. GFC window: July 2007–March 2009. Liv-ex 100 from `liv-ex_index_history.csv`. Top performers defined as the 3 wines with the highest (least negative) GFC total return. All series indexed to 100 at July 2007. Where fewer than 2 traded months exist in the window, data is noted as insufficient rather than estimated.*
 
 **This is the central insight: the diversification properties of fine wine at the index level are real, but the investor experience depends critically on which wines are held.** An unsophisticated or poorly-advised wine portfolio could easily be concentrated in wines with poor secondary market liquidity, limited collector demand, or sensitivity to fashion risk — undermining the very diversification benefit that makes the asset class attractive.
 
@@ -147,7 +147,7 @@ This matters because it suggests the diversification benefit is not simply an ar
 ![Custom Index vs Liv-ex](../images/custom_indices/02_custom_vs_livex.png)
 *WineFi custom trade-based index vs Liv-ex 100 and Liv-ex 1000 (rebased to 100, January 2005). The rolling 12-month spread between the custom index and Liv-ex 100 has a mean of −0.7 pp and standard deviation of 16.5 pp — directionally consistent but with meaningful divergence at turning points. Broad directional alignment confirms that the diversification story is not dependent on cherry-picking the most liquid bottles.*
 
-*Methodology: WineFi custom index constructed from the 30 most-traded LWIN7s in the WineFi transaction database (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), weighted by monthly trade volume, from 2005 onwards. Compared against Liv-ex 100 and Liv-ex 1000 from the Liv-ex index CSV. All series rebased to 100 at January 2005. The custom index is subject to survivorship and liquidity-selection bias.*
+*Methodology: WineFi custom index constructed from the 30 most-traded wines in the WineFi transaction database (WineFi proprietary trade data), weighted by monthly trade volume, from 2005 onwards. Compared against Liv-ex 100 and Liv-ex 1000 from the Liv-ex index CSV. All series rebased to 100 at January 2005. The custom index is subject to survivorship and liquidity-selection bias.*
 
 ---
 
@@ -164,7 +164,7 @@ Fine wine is appropriate for investors with a multi-year time horizon who do not
 ![Bid vs Trade Price](../images/liquidity/02_bid_vs_trade_price.png)
 *Buyer bid prices compared to realised transaction prices through the market cycle. Active buyer demand tracked closely with actual trade prices through market stress periods — no evidence of a catastrophic collapse in bids.*
 
-*Methodology: WineFi platform data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), covering buyer bid prices and realised transaction prices from 2005 onwards. Monthly aggregates volume-weighted across all LWIN7s with at least one bid and one trade recorded. Crisis periods marked using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
+*Methodology: WineFi proprietary trade data, covering buyer bid prices and realised transaction prices from 2005 onwards. Monthly aggregates volume-weighted across all wines with at least one bid and one trade recorded. Crisis periods marked using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
 
 ---
 
