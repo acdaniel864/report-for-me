@@ -376,9 +376,10 @@ from the index:
   (LWIN7: 1226155) — confirms that all six outperformed the Liv-ex 100 (−19.9%) during the
   GFC. Top performers: Soldera Case Basse −6.6%, Selosse Millesime −8.1%, Rousseau
   Chambertin −9.3% (see `gfc_extended_comparison.png`).
-- The custom index analysis (Notebook 06) confirms a key limitation: the most-traded
-  wines are themselves a **liquidity-selected, survivorship-biased subset**. Wines that
-  fell out of favour, suffered quality issues, or left the secondary market are excluded.
+- The latent trade price model analysis (Notebook 06) confirms a key limitation: the LWIN7
+  universe with sufficient trade data for MCMC estimation is itself a **liquidity-selected,
+  survivorship-biased subset**. Wines with very few trades are excluded or have wide
+  posterior uncertainty in `price_latent`.
 - The Liv-ex 100 has historically been dominated by a Bordeaux bull-market cycle
   (2005–2011) followed by a correction. An index constructed in 2005 would have shown
   very different long-term returns than one constructed in 2011.
@@ -387,23 +388,20 @@ from the index:
 
 ### What the data says
 
-The custom trade-based index analysis (Notebook 06) is the direct response to this
+The latent trade price model analysis (Notebook 06) is the direct response to this
 challenge. Key findings:
 
-1. **The custom index and Liv-ex 100 broadly track the same direction.** The comparison
+1. **The latent price index and Liv-ex 100 broadly track the same direction.** The comparison
    chart (`02_custom_vs_livex.png`) shows both series from 2005, rebased to 100. The
-   directional story is the same even with a differently-constructed index — the rolling
-   12-month spread has a mean of −0.7 pp, confirming broad directional alignment. This
+   directional story is the same even with a differently-constructed index. This
    supports the core thesis that fine wine as an asset class diverges from equities
    regardless of which benchmark you use.
 
 2. **Meaningful divergence exists at turning points.** The spread chart
-   (`03_spread_vs_livex100.png`) identifies periods where the custom index leads or lags
-   the Liv-ex 100. The standard deviation of the rolling 12-month spread is 16.5 pp —
-   meaningful economically, though the mean is near zero (−0.7 pp). This divergence
-   reflects genuine compositional differences. Investors exposed only to the
-   highest-liquidity wines face a different risk/return profile than those with a broader
-   portfolio.
+   (`03_spread_vs_livex100.png`) identifies periods where the latent price index leads or lags
+   the Liv-ex 100. This divergence reflects genuine compositional differences. Investors
+   exposed only to the highest-liquidity wines face a different risk/return profile than
+   those with a broader portfolio.
 
 3. **Individual wine heterogeneity is a risk, not a counter-argument.** The per-wine
    price charts (Notebook 04, `wine_price_series.png`) show Salon (LWIN7: 1807626),
@@ -417,18 +415,18 @@ challenge. Key findings:
    outperform; others underperform. This is a **selection risk argument** (diversification
    within wine matters) rather than an argument against wine as an asset class per se.
 
-4. **The custom index bias must be acknowledged.** The top-30 most-traded LWIN7s are
-   themselves survivorship-biased. The custom index does not solve the cherry-picking
-   problem — it simply trades one form of selection bias (Liv-ex 100's fixed composition)
-   for another (most-actively-traded historical set). There is no clean benchmark for
-   "average fine wine investment returns."
+4. **The latent price model bias must be acknowledged.** The LWIN7 universe included in
+   the MCMC model reflects wines with sufficient trade activity for model estimation —
+   itself a survivorship-biased subset. The latent price model mitigates VWAP noise and
+   gap-filling limitations but does not solve the fundamental cherry-picking problem. There
+   is no clean unbiased benchmark for "average fine wine investment returns."
 
-![Custom vs Liv-ex Indices](../images/custom_indices/02_custom_vs_livex.png)
-*Chart: Custom trade-based index vs Liv-ex 100 and Liv-ex 1000 (all rebased to 100 at
-January 2005). Broad directional consistency with meaningful divergence at specific
+![Latent Price vs Liv-ex Indices](../images/custom_indices/02_custom_vs_livex.png)
+*Chart: WineFi latent trade price index (MCMC/Kalman) vs Liv-ex 100 and Liv-ex 1000 (all rebased
+to 100 at January 2005). Broad directional consistency with meaningful divergence at specific
 turning points.*
 
-*Methodology: WineFi custom index constructed from the 30 most-traded LWIN7s in the WineFi transaction database (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), weighted by monthly trade volume, from 2005 onwards. Compared against Liv-ex 100 and Liv-ex 1000 from the Liv-ex index CSV. All series rebased to 100 at January 2005. The custom index is subject to survivorship and liquidity-selection bias.*
+*Methodology: WineFi latent trade price model (MCMC/Kalman) from `dev_winefi_raf.ml.ml_latent_prices_historic` (MotherDuck). LWIN11-level latent prices aggregated to LWIN7 by median across vintages per month; equal-weighted composite. Compared against Liv-ex 100 and Liv-ex 1000 from the Liv-ex index CSV. All series rebased to 100 at January 2005. The latent price model is subject to survivorship and liquidity-selection bias.*
 
 ![Individual Wine Heterogeneity](../images/heterogeneity/wine_price_series.png)
 *Chart: Per-wine VWAP price series (750ml, GBP) for Salon (LWIN7: 1807626, all vintages),
@@ -476,10 +474,10 @@ To pre-empt the objection that GFC resilience is confined to blue-chip Bordeaux 
 We should proactively acknowledge the Liv-ex 100 limitations rather than defending it
 as the ground truth. Our response has two parts:
 
-1. **Directional robustness**: The custom trade-based index — constructed from a broader
-   universe using WineFi's own transaction data — tells the same broad story as the Liv-ex
-   100. The diversification benefit is not an artefact of cherry-picking the 100 most
-   liquid wines.
+1. **Directional robustness**: The latent trade price model (MCMC/Kalman) — constructed
+   from WineFi's own MCMC-estimated prices across a broader LWIN7 universe — tells the same
+   broad story as the Liv-ex 100. The diversification benefit is not an artefact of
+   cherry-picking the 100 most liquid wines.
 
 2. **Selection risk is a real risk we help manage**: Individual wine performance is highly
    heterogeneous. Unsophisticated wine investors face significant selection risk. WineFi's
@@ -600,7 +598,7 @@ Three areas require candid acknowledgment:
   higher than we typically cite. We should not overclaim on correlation figures.
 - The 2016 FX effect is a legitimate concern for EUR investors. They did not get +22%.
   Long-run EUR charts are essential for that audience.
-- Survivorship bias affects any wine price index, including our custom trade-based one.
+- Survivorship bias affects any wine price index, including our latent trade price model.
   There is no clean unbiased benchmark. This is a structural limitation of the asset
   class that requires honest disclosure.
 

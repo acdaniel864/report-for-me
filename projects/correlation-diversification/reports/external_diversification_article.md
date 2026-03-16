@@ -140,14 +140,14 @@ Conversely, a carefully selected portfolio of wines with strong underlying deman
 
 A reasonable challenge to the fine wine diversification case is whether it relies on a handpicked benchmark of the most prestigious — and most liquid — bottles.
 
-We constructed an alternative index using WineFi's own transaction data: a broader universe of investment-grade wines, weighted by actual trade volume across the platform. The result tells the same broad story. The custom index and the Liv-ex 100 track the same broad direction over time, with meaningful divergence at specific turning points.
+We constructed an alternative index using WineFi's own latent trade price model — a MCMC/Kalman-filtered methodology that produces smoothed price estimates across the full universe of investment-grade wines, aggregated to wine-label level. The result tells the same broad story. The latent price index and the Liv-ex 100 track the same broad direction over time, with meaningful divergence at specific turning points.
 
 This matters because it suggests the diversification benefit is not simply an artefact of measuring the top tier of the market. A broader portfolio of fine wine, professionally selected and managed, has exhibited the same fundamental decoupling from equity market cycles.
 
-![Custom Index vs Liv-ex](../images/custom_indices/02_custom_vs_livex.png)
-*WineFi custom trade-based index vs Liv-ex 100 and Liv-ex 1000 (rebased to 100, January 2005). The rolling 12-month spread between the custom index and Liv-ex 100 has a mean of −0.7 pp and standard deviation of 16.5 pp — directionally consistent but with meaningful divergence at turning points. Broad directional alignment confirms that the diversification story is not dependent on cherry-picking the most liquid bottles.*
+![Latent Price Index vs Liv-ex](../images/custom_indices/02_custom_vs_livex.png)
+*WineFi latent trade price index (MCMC/Kalman) vs Liv-ex 100 and Liv-ex 1000 (rebased to 100, January 2005). Directionally consistent with meaningful divergence at turning points. Broad directional alignment confirms that the diversification story is not dependent on cherry-picking the most liquid bottles.*
 
-*Methodology: WineFi custom index constructed from the 30 most-traded LWIN7s in the WineFi transaction database (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), weighted by monthly trade volume, from 2005 onwards. Compared against Liv-ex 100 and Liv-ex 1000 from the Liv-ex index CSV. All series rebased to 100 at January 2005. The custom index is subject to survivorship and liquidity-selection bias.*
+*Methodology: WineFi latent trade price model (MCMC/Kalman) applied to `dev_winefi_raf.ml.ml_latent_prices_historic` (MotherDuck). LWIN11-level latent prices aggregated to LWIN7 by median across vintages per month; equal-weighted composite across all LWIN7s with latent price coverage. Compared against Liv-ex 100 and Liv-ex 1000 from the Liv-ex index CSV. All series rebased to 100 at January 2005. The latent price model improves on raw-VWAP noise but the LWIN7 universe remains subject to survivorship bias.*
 
 ---
 
@@ -198,7 +198,7 @@ None of these caveats overturn the case. They sharpen it. The investors who bene
 
 **Equity comparisons**: S&P 500 and FTSE 100 total return data sourced via Yahoo Finance. Crisis period drawdowns calculated from monthly closing levels.
 
-**WineFi transaction data**: Individual wine price analysis and the custom trade-based index were constructed from WineFi platform transaction records, covering trades from 2005 onwards. Volume-weighted average prices per wine per month.
+**WineFi transaction data**: Individual wine price analysis was constructed from WineFi platform transaction records, covering trades from 2005 onwards. Volume-weighted average prices per wine per month. The alternative wine price index uses WineFi's latent trade price model (MCMC/Kalman) sourced from `dev_winefi_raf.ml.ml_latent_prices_historic`.
 
 **Correlation methodology**: Pearson correlations calculated on monthly log-returns. Rolling windows of 12 months and 36 months. The measurement limitation for illiquid assets — that infrequent trading can suppress measured correlations below the true economic relationship — is described in Getmansky, Lo & Makarov (2004), *"An Econometric Model of Serial Correlation and Illiquidity in Hedge Fund Returns"*, Journal of Financial Economics, 74(3), 529–609.
 
@@ -209,7 +209,7 @@ None of these caveats overturn the case. They sharpen it. The investors who bene
 
 **Time-window methodology**: All fine wine comparisons in this article use windows of at least three months. This is a methodological requirement, not a choice: fine wine prices are determined by infrequent bilateral transactions rather than continuous market-clearing. A single calendar month may contain few or no trades for a given wine, meaning index prices can reflect deal flow from prior months. Minimum three-month windows ensure that reported returns reflect genuine price discovery rather than measurement lag.
 
-**Index construction note**: The Liv-ex 100 covers the 100 most actively traded investment-grade wines and has historically been weighted toward Bordeaux first growths. The WineFi custom index is constructed from the most-traded wines (by unique wine identifier) in the WineFi transaction database, weighted by volume. Both indices are subject to selection effects; neither represents the universe of all fine wine investments.
+**Index construction note**: The Liv-ex 100 covers the 100 most actively traded investment-grade wines and has historically been weighted toward Bordeaux first growths. The WineFi latent trade price index is derived from the MCMC/Kalman model (`dev_winefi_raf.ml.ml_latent_prices_historic`), aggregating LWIN11-level latent prices to LWIN7 level as an equal-weighted composite. Both indices are subject to selection effects; neither represents the universe of all fine wine investments.
 
 **Currency**: All Liv-ex index data is denominated in GBP, the settlement currency of the exchange. EUR and USD returns are derived by applying spot FX rates to GBP series. Non-GBP investors should review EUR or USD return series for the reporting currency relevant to their portfolio.
 
