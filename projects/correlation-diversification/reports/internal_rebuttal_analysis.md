@@ -349,17 +349,15 @@ robust collector demand. Individual wines behave very differently from each othe
 from the index:
 
 - The heterogeneity analysis (Notebook 04) shows that Salon (LWIN7: 1807626, all vintages),
-  Dom Pérignon (LWIN7: 1082656, all vintages), and Lafite (LWIN7: 1011872, all vintages)
+  Domaine de la Romanée-Conti, Échezeaux (LWIN7: 1028658, all vintages), and Lafite (LWIN7: 1011872, all vintages)
   follow materially different price paths. During the 2008 GFC (Sep 2008–Mar 2009), the
-  return range spanned −11% (Salon, LWIN7: 1807626) to −16% (Lafite, LWIN7: 1011872);
-  during COVID (Feb–Apr 2020), Salon (LWIN7: 1807626) held flat (0%), Dom Pérignon
-  (LWIN7: 1082656) fell −8%, and Lafite (LWIN7: 1011872) gained +11%; during the 2022
-  rate-rise cycle, Salon (LWIN7: 1807626) +8%, Dom Pérignon (LWIN7: 1082656) +15%, and
-  Lafite (LWIN7: 1011872) +1% vs Liv-ex 100 −0.2%.
-- An extended GFC analysis (July 2007–March 2009) of six further wines — Masseto (LWIN7:
-  1160743), DRC Echezeaux (LWIN7: 1028658), Rousseau Chambertin (LWIN7: 1057005),
+  return range spanned across the three focal wines over the September 2008–March 2009 window;
+  during COVID (Feb–Apr 2020), Salon (LWIN7: 1807626) held flat (0%) and Lafite (LWIN7: 1011872) gained +11%;
+  during the 2022 rate-rise cycle, individual wine returns diverged materially from the Liv-ex 100 −0.2% benchmark.
+- An extended GFC analysis (July 2007–March 2009) of five further wines — Masseto (LWIN7:
+  1160743), Rousseau Chambertin (LWIN7: 1057005),
   Sassicaia (LWIN7: 1102037), Soldera Case Basse (LWIN7: 1226504), and Selosse Millesime
-  (LWIN7: 1226155) — confirms that all six outperformed the Liv-ex 100 (−19.9%) during the
+  (LWIN7: 1226155) — confirms that all five outperformed the Liv-ex 100 (−19.9%) during the
   GFC. Top performers: Soldera Case Basse −6.6%, Selosse Millesime −8.1%, Rousseau
   Chambertin −9.3% (see `gfc_extended_comparison.png`).
 - The latent trade price model analysis (Notebook 06) confirms a key limitation: the LWIN7
@@ -391,10 +389,9 @@ challenge. Key findings:
 
 3. **Individual wine heterogeneity is a risk, not a counter-argument.** The per-wine
    price charts (Notebook 04, `wine_price_series.png`) show Salon (LWIN7: 1807626),
-   Dom Pérignon (LWIN7: 1082656), and Lafite (LWIN7: 1011872) diverging significantly
-   during stress periods — return dispersion across these three wines ranged from −11% to
-   −16% in the GFC, −8% to +11% in COVID, and +1% to +15% in 2022. The extended GFC
-   analysis across six further LWIN7s (`gfc_extended_comparison.png`) confirms that
+   Domaine de la Romanée-Conti, Échezeaux (LWIN7: 1028658), and Lafite (LWIN7: 1011872) diverging significantly
+   during stress periods. The extended GFC
+   analysis across five further LWIN7s (`gfc_extended_comparison.png`) confirms that
    dispersion is real but skewed: Soldera Case Basse (LWIN7: 1226504, −6.6%), Selosse
    Millesime (LWIN7: 1226155, −8.1%), and Rousseau Chambertin (LWIN7: 1057005, −9.3%)
    were the top GFC performers, all beating the Liv-ex 100 by 10+ pp. Some wines
@@ -416,7 +413,7 @@ turning points.*
 
 ![Individual Wine Heterogeneity](../images/heterogeneity/wine_price_series.png)
 *Chart: Per-wine VWAP price series (750ml, GBP) for Salon (LWIN7: 1807626, all vintages),
-Dom Pérignon (LWIN7: 1082656, all vintages), and Lafite (LWIN7: 1011872, all vintages).
+Domaine de la Romanée-Conti, Échezeaux (LWIN7: 1028658, all vintages), and Lafite (LWIN7: 1011872, all vintages).
 Stress periods shaded. Significant divergence in price paths highlights within-wine
 selection risk.*
 
@@ -424,32 +421,30 @@ selection risk.*
 
 ![Stress Period Performance](../images/heterogeneity/stress_period_performance.png)
 *Chart: Best and worst performers during GFC 2008 (Sep 2008–Mar 2009), COVID 2020
-(Feb–Apr 2020), and 2022 rate rises (Jan–Dec 2022). Return dispersion: GFC −11% to −16%,
-COVID −8% to +11%, 2022 +1% to +15%. Individual wines show wide return dispersion vs S&P
+(Feb–Apr 2020), and 2022 rate rises (Jan–Dec 2022). Individual wines show wide return dispersion vs S&P
 500 and Liv-ex benchmarks.*
 
 *Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) and Liv-ex 100 benchmark (Liv-ex index CSV). Individual wine returns calculated from volume-weighted average prices at LWIN11 level at period start and end. Covers GFC 2008, COVID 2020, and the 2022 rate-rise cycle; best and worst performers ranked by total return within each stress window.*
 
-#### Extended GFC Analysis: Six Additional LWIN7s
+#### Extended GFC Analysis: Five Additional LWIN7s
 
-To pre-empt the objection that GFC resilience is confined to blue-chip Bordeaux and Salon/Dom Pérignon, we ran GFC performance for six further wines spanning Italian super-Tuscans, Burgundy grands crus, and grower Champagne (July 2007–March 2009, indexed to 100 at July 2007; Liv-ex 100 benchmark: −19.9% over the window):
+To pre-empt the objection that GFC resilience is confined to blue-chip Bordeaux and Salon/DRC Échezeaux, we ran GFC performance for five further wines spanning Italian super-Tuscans, Burgundy grands crus, and grower Champagne (July 2007–March 2009, indexed to 100 at July 2007; Liv-ex 100 benchmark: −19.9% over the window):
 
 | Wine | LWIN7 | GFC Return (Jul 2007–Mar 2009) | vs Liv-ex 100 |
 |---|---|---|---|
 | Soldera Case Basse, Toscana | 1226504 | −6.6% | +13.3 pp |
 | Jacques Selosse, Millesime | 1226155 | −8.1% | +11.8 pp |
 | Domaine Armand Rousseau, Chambertin Grand Cru | 1057005 | −9.3% | +10.6 pp |
-| Domaine de la Romanee-Conti, Echezeaux Grand Cru | 1028658 | −9.3% | +10.6 pp |
 | Sassicaia, Tenuta San Guido, Bolgheri | 1102037 | −16.3% | +3.6 pp |
 | Masseto, Toscana | 1160743 | −18.2% | +1.7 pp |
 
-- **All six outperformed the Liv-ex 100 during the GFC**, though by varying margins.
+- **All five outperformed the Liv-ex 100 during the GFC**, though by varying margins.
 - The top three performers — Soldera Case Basse (LWIN7: 1226504, −6.6%), Selosse Millesime (LWIN7: 1226155, −8.1%), and Rousseau Chambertin (LWIN7: 1057005, −9.3%) — all beat the Liv-ex 100 by more than 10 pp and outperformed the original three focal wines as well.
 - Even the weakest new performer (Masseto, LWIN7: 1160743, −18.2%) modestly beat the Liv-ex 100.
 - Critically, the wines with the worst GFC performance in our set (Masseto, Sassicaia) are Italian super-Tuscans with historically higher correlation to financial market sentiment, consistent with their investor profile.
 
 ![GFC Extended Comparison](../images/heterogeneity/gfc_extended_comparison.png)
-*GFC performance of six new LWIN7s (indexed to 100 at July 2007). Solid lines = top 3 GFC performers; dashed = others. Faint grey line = Liv-ex 100 benchmark (−19.9%). All six new wines outperformed the Liv-ex 100. Data source: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`).*
+*GFC performance of five new LWIN7s (indexed to 100 at July 2007). Solid lines = top 3 GFC performers; dashed = others. Faint grey line = Liv-ex 100 benchmark (−19.9%). All five new wines outperformed the Liv-ex 100. Data source: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`).*
 
 *Methodology: Volume-weighted average prices per LWIN7 per month in GBP per 750ml. GFC window July 2007–March 2009. Liv-ex 100 from `liv-ex_index_history.csv`. Top performers: 3 new LWIN7s with highest (least negative) GFC return. Where fewer than 2 traded months exist in the GFC window, data is noted as insufficient rather than estimated.*
 
@@ -630,7 +625,7 @@ MotherDuck connection (`motherduck_token` environment variable) and the
 | COVID multi-window (Q1/H1/12m 2020) | 03 Correlation | `images/correlation/04b_covid_multiwindow_comparison.png` |
 | Burgundy 150 vs S&P 500/FTSE 2008 | 03 Correlation | `images/correlation/05_burgundy150_vs_sp500_ftse_2008.png` |
 | Burgundy 150 GFC bar comparison | 03 Correlation | `images/correlation/06_burgundy150_gfc_bar_comparison.png` |
-| Wine price series (Salon LWIN7:1807626 / Dom Pérignon LWIN7:1082656 / Lafite LWIN7:1011872) | 04 Heterogeneity | `images/heterogeneity/wine_price_series.png` |
+| Wine price series (Salon LWIN7:1807626 / DRC Échezeaux LWIN7:1028658 / Lafite LWIN7:1011872) | 04 Heterogeneity | `images/heterogeneity/wine_price_series.png` |
 | GFC drawdown: individual wines + top new LWIN7s | 04 Heterogeneity | `images/heterogeneity/gfc_drawdown_comparison.png` |
 | Wine trade volume | 04 Heterogeneity | `images/heterogeneity/wine_trade_volume.png` |
 | Stress period performance (incl. new LWIN7s) | 04 Heterogeneity | `images/heterogeneity/stress_period_performance.png` |
