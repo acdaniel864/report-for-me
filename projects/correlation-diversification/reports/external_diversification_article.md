@@ -88,7 +88,7 @@ The pattern is consistent across all three events: fine wine has not been immune
 ![Crisis Period Performance](../images/currency/03_crisis_period_analysis.png)
 *Fine wine and equity returns during the three major stress events. GFC 2008: Liv-ex 1000 −1% GBP vs S&P 500 −39% USD (−17% GBP) over the crisis window. Brexit 2016: Liv-ex 1000 +22% GBP / +5% EUR. COVID 2020: Liv-ex 1000 +2% GBP over the Feb–Apr 2020 period while global equities suffered intra-period peak drawdowns of 30–35%. In all three episodes, fine wine delivered materially smaller drawdowns than equity benchmarks.*
 
-*Methodology: Liv-ex 100 (Liv-ex index CSV, GBP), S&P 500 (Yahoo Finance, USD), and FTSE 100 (Yahoo Finance, GBP) monthly return series. Cumulative total return computed over each defined crisis window: GFC (September 2008–March 2009), Brexit (June–December 2016), and COVID (February–April 2020). Returns shown in each asset's primary market currency.*
+*Methodology: Liv-ex 100 (Liv-ex index CSV, GBP), S&P 500 total return (Yahoo Finance, USD), and FTSE 100 total return (Yahoo Finance, GBP) monthly return series. Cumulative total return computed over each defined crisis window: GFC (September 2008–March 2009), Brexit (June–December 2016), and COVID (February–April 2020). Returns shown in each asset's primary market currency.*
 
 ---
 

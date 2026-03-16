@@ -321,7 +321,7 @@ FX impacts. Both assets face similar FX headwinds and tailwinds for a GBP invest
 and GBP. In every crisis, both assets face FX adjustments; the critics' logic applied
 consistently supports the GBP comparison, not undermines it.*
 
-*Methodology: Liv-ex 100 (Liv-ex index CSV, GBP), S&P 500 (Yahoo Finance, USD), and FTSE 100 (Yahoo Finance, GBP) monthly return series. Cumulative total return computed over each crisis window: GFC (September 2008–March 2009), Brexit (June–December 2016), COVID (February–April 2020). Both local-currency and GBP-adjusted S&P 500 returns shown using monthly EUR/GBP and GBP/USD spot rates (Yahoo Finance).*
+*Methodology: Liv-ex 100 (Liv-ex index CSV, GBP), S&P 500 total return (Yahoo Finance, USD), and FTSE 100 total return (Yahoo Finance, GBP) monthly return series. Cumulative total return computed over each crisis window: GFC (September 2008–March 2009), Brexit (June–December 2016), COVID (February–April 2020). Both local-currency and GBP-adjusted S&P 500 total return shown using monthly EUR/GBP and GBP/USD spot rates (Yahoo Finance).*
 
 ### Our position
 
