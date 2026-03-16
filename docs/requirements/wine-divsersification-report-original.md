@@ -61,7 +61,7 @@ A well-selected fine wine portfolio can provide diversification and resilience.
 
 **Database connection:**
 
-Connect to MotherDuck via the Python `duckdb` library. The `motherduck_token` env var is already set in the environment — `duckdb.connect("md:")` picks it up automatically. All dependencies are pre-installed from `requirements.txt`.
+Connect to MotherDuck via the Python `duckdb` library. The `motherduck_token` env var is already set in the environment — `duckdb.connect("md:")` picks it up automatically. **Use uv for dependencies:** from repo root run `uv sync`; the project uses `pyproject.toml` and `uv.lock` (no `requirements.txt`).
 
 ```python
 import duckdb
