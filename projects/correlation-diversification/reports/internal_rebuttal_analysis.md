@@ -225,49 +225,35 @@ anyone who may need to liquidate positions under time pressure.
 
 ### What the data says
 
-The liquidity analysis (Notebook 05) tests the strong form of the claim: that low trade
-volume during crises translates into forced price declines.
+The core insight is simple: **illiquidity is a feature, not a bug.** Sellers in the wine
+market hold reserve prices and withdraw from the market when bids are too low — they do
+not accept distressed prices. The chart below captures this in a single visual.
 
-1. **Lower volume ≠ lower prices.** The GFC window analysis (`05_low_vol_price_held.png`)
-   identifies multiple months where trade counts were in the bottom quartile yet median
-   prices held flat or rose month-on-month. Sellers who maintained their reserve prices
-   simply did not transact — they withdrew rather than cutting prices.
+![Fine Wine: Markets Thin in Crises — Prices Hold](../images/liquidity/07_volume_vs_price_headline.png)
+*Monthly trade volume (bars, left) and Liv-ex Fine Wine 1000 rebased to 100 (line, right).
+GFC (2008–09) and COVID (2020) shaded. Trade volumes fell sharply during both crises;
+the price index held or recovered. Sellers withdrew rather than capitulating.*
 
-2. **Bid prices shadow trade prices through crises.** The bid vs trade price comparison
-   (`02_bid_vs_trade_price.png`) shows that buyer demand (bid prices) tracks realised
-   transaction prices closely even during stress periods. There is no evidence of a
-   catastrophic bid/ask spread blowout equivalent to what is seen in distressed credit
-   markets.
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`).
+Monthly trade counts across the 30 most-traded LWIN7s. Liv-ex Fine Wine 1000 index from
+Liv-ex, rebased to 100 at January 2000.*
 
-3. **No clear relationship between trade count and price decline.** The scatter analysis
-   for the 2008 GFC (`06_2008_liquidity_price_change.png`) compares high-liquidity vs
-   low-liquidity cohorts of wines. The OLS R² across the full dataset is just 0.001 —
-   essentially zero. During the GFC, high-liquidity wines had a median price change of
-   −8.4% vs −4.8% for low-liquidity wines; the low-liquidity cohort actually fared
-   marginally better. Wines with fewer trades did not systematically suffer larger price
-   declines — the relationship is weak to absent.
+The quantitative evidence behind this picture:
 
-4. **The mechanism of price defence.** In illiquid alternative markets, sellers control
-   the price outcome by choosing not to transact below their reserve price. This is
-   fundamentally different from listed equities where forced sellers (margin calls,
-   redemptions) create downward price spirals. The wine market's illiquidity is partially
-   a structural **price stabiliser**, not purely a vulnerability.
+1. **Lower volume ≠ lower prices.** In the GFC window, multiple months had trade counts
+   in the bottom quartile yet prices held flat or rose. Of 11 low-volume GFC months,
+   7 (64%) saw prices hold or rise — sellers withdrew rather than cutting prices.
+   (See `05_low_vol_price_held.png` for the detailed breakdown.)
 
-![Low Volume, Prices Held](../images/liquidity/05_low_vol_price_held.png)
-*Chart: GFC window — months where trade count fell below the bottom-quartile threshold
-(121 trades/month, 2005–2015 baseline) but median price held flat or rose. Of 11
-low-volume months in the GFC window, 7 (64%) saw prices hold or rise. Green bars = low
-volume, price defended.*
+2. **No systematic link between liquidity and price decline.** A cohort analysis of the
+   30 most-traded wines during the GFC found no clear relationship: the OLS R² across
+   the full dataset is 0.001 — effectively zero. High-liquidity wines had a median GFC
+   price change of −8.4%; low-liquidity wines −4.8%. Wines with fewer trades did not
+   suffer deeper declines. (See `06_2008_liquidity_price_change.png`.)
 
-*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) for the GFC window (September 2008–March 2009). Monthly LWIN7 trade counts classified as bottom-quartile (low liquidity) relative to the full 2005–present distribution. Months where median LWIN7 price held flat or rose month-on-month identified as "price defended" observations.*
-
-![2008 Liquidity Price Change](../images/liquidity/06_2008_liquidity_price_change.png)
-*Chart: GFC 2008 — scatter and box comparison of high-liquidity (n=17) vs low-liquidity
-(n=13) wine cohorts. High-liquidity median: −8.4%; low-liquidity median: −4.8%. OLS R²
-across the full dataset: 0.001. No systematic relationship between trade frequency and
-price decline.*
-
-*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`) for the GFC period (2007–2009). LWIN7s classified into high-liquidity and low-liquidity cohorts by median monthly trade count across the 2005–present baseline. Price change calculated as percentage change in volume-weighted average price from pre-GFC peak to post-GFC trough.*
+3. **The mechanism.** In fine wine, sellers control the outcome. Unlike listed equities
+   where margin calls and redemptions force sellers to accept any price, wine owners can
+   simply hold. Thin markets reflect withdrawn supply — not forced distressed selling.
 
 ### Our position
 

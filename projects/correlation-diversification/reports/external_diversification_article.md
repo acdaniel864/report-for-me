@@ -155,16 +155,16 @@ This matters because it suggests the diversification benefit is not simply an ar
 
 Fine wine is not as liquid as a listed equity. An investor cannot sell a wine portfolio at a quoted price in minutes. This is a genuine constraint, and one that shapes who fine wine is — and is not — right for.
 
-What the data does challenge is the idea that illiquidity means price vulnerability during crises. Our analysis of trading patterns during the 2008 GFC found no systematic relationship between a wine's trading frequency and the size of its price decline — the OLS R² across the full dataset is effectively zero (0.001). The high-liquidity wine cohort had a median GFC price change of −8%, while the low-liquidity cohort had a median of −5%: wines with fewer buyers in stress periods did not fall more sharply than well-traded wines.
+The critical insight, however, is that illiquidity is a **feature**, not a bug. When markets thinned during the 2008 GFC and the COVID shock, sellers simply chose not to transact below their reserve prices rather than liquidating at a discount. Trading volumes fell — but prices held. There were no forced sellers driving prices down in a spiral.
 
-The mechanism is intuitive: sellers in the wine market can — and do — choose not to transact below their reserve price. Unlike shareholders in a listed company facing margin calls or institutional redemptions, wine owners facing a difficult market can simply hold. This seller discipline is a structural feature of the market that contributes to price stability during stress.
+This is structurally different from listed markets, where margin calls and institutional redemptions force sellers to accept whatever price the market offers. In fine wine, the seller controls the outcome. The result: thinner markets, but stable prices.
 
 Fine wine is appropriate for investors with a multi-year time horizon who do not require rapid liquidity. It is not suitable for anyone who may need to realise the position quickly.
 
-![Bid vs Trade Price](../images/liquidity/02_bid_vs_trade_price.png)
-*Buyer bid prices compared to realised transaction prices through the market cycle. Active buyer demand tracked closely with actual trade prices through market stress periods — no evidence of a catastrophic collapse in bids.*
+![Fine Wine: Markets Thin in Crises — Prices Hold](../images/liquidity/07_volume_vs_price_headline.png)
+*Monthly trade volume (bars, left axis) and Liv-ex Fine Wine 1000 price index rebased to 100 (line, right axis). Trading volumes fell sharply in the GFC (2008–09) and COVID (2020) shaded periods — but the price index held or recovered. Sellers withdrew rather than capitulating.*
 
-*Methodology: WineFi platform data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`), covering buyer bid prices and realised transaction prices from 2005 onwards. Monthly aggregates volume-weighted across all LWIN7s with at least one bid and one trade recorded. Crisis periods marked using GFC (Sep 2008–Mar 2009), Brexit (Jun–Dec 2016), and COVID (Feb–Apr 2020) window definitions.*
+*Methodology: WineFi transaction data (MotherDuck `winefi.ml.ml_unified_trades_tbvm`). Monthly trade counts across the 30 most-traded wine labels (LWIN7s). Liv-ex Fine Wine 1000 index from Liv-ex, rebased to 100 at January 2000.*
 
 ---
 
