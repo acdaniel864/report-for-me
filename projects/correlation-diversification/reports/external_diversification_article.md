@@ -22,7 +22,7 @@ This article sets out WineFi's position on fine wine as a diversifier. It draws 
 
 Before examining the data, it is worth understanding *why* fine wine might exhibit different return patterns to conventional assets. There are several structural reasons.
 
-**Supply constraints are vintage-specific and weather-driven.** The volume of any given wine is fixed at harvest. Exceptional vintages in short supply — whether from Burgundy, Champagne, or elsewhere — carry a scarcity premium that does not erode with monetary policy. Climate variation creates genuine supply shocks that are orthogonal to financial markets.
+**Supply constraints are vintage-specific and weather-driven.** The volume of any given wine is fixed at harvest. Exceptional vintages in short supply — whether from Burgundy, Champagne, or elsewhere — carry a scarcity premium that does not erode with monetary policy. Climate variation creates genuine supply shocks that are entirely independent of financial markets.
 
 **Demand has idiosyncratic drivers.** Consumer taste, cultural trends, the emergence of new markets, and shifts in producer prestige all influence prices in ways that diverge from equity market cycles. The surge in Asian demand for top Bordeaux châteaux during the late 2000s, for example, was driven by factors entirely disconnected from the contemporaneous financial crisis.
 
@@ -42,7 +42,7 @@ The most common way to present wine's diversification case is a correlation matr
 
 ![Correlation heatmap comparing fine wine with major asset classes on a month-by-month basis](../images/correlation/01_static_correlation_heatmap.png)
 
-*Figure 1: Static correlation of monthly returns — fine wine versus global equities, bonds, gold, and commodities. Sources: Liv-ex, Bloomberg. Data from 2002 to 2025.*
+*Figure 1: Static correlation of monthly returns — fine wine versus global equities, bonds, gold, and commodities. Sources: Liv-ex, Yahoo Finance. Data from 2002 to 2025.*
 
 Fine wine has historically shown low static correlation with equities, bonds, and most commodity indices. The numbers are compelling — but they require careful interpretation.
 
@@ -56,15 +56,15 @@ Rolling correlations — calculated over moving one-, two-, and three-year windo
 
 ![Rolling 1 and 2-year correlation between fine wine and major equity indices](../images/correlation/02_rolling_correlations_vs_sp500.png)
 
-*Figure 2: One-year and two-year rolling correlation between fine wine and the S&P 500, FTSE 100, and other major equity markets. Sources: Liv-ex, Bloomberg.*
+*Figure 2: One-year and two-year rolling correlation between fine wine and the S&P 500, FTSE 100, and other major equity markets. Sources: Liv-ex, Yahoo Finance.*
 
 ![Three-year rolling correlation across a broader set of asset classes](../images/correlation/03_lx1000_rolling_correlation_all_assets.png)
 
-*Figure 3: Three-year rolling correlation — fine wine versus equities, gold, bonds, and commodities. The broader fine wine index incorporating approximately 1,000 wines is used here. Sources: Liv-ex, Bloomberg.*
+*Figure 3: Three-year rolling correlation — fine wine versus equities, gold, bonds, and commodities. The broader fine wine index incorporating approximately 1,000 wines is used here. Sources: Liv-ex, Yahoo Finance.*
 
 Several observations stand out.
 
-First, fine wine's correlation with equities is low over most of the period covered, but it is not zero and it is not stable. There are periods — notably around the 2008 financial crisis — when correlation rises, peaking briefly above 0.5 on a three-year rolling basis. This reflects genuine sensitivity to macro conditions during acute systemic stress.
+First, fine wine's correlation with equities is low over most of the period covered, but it is not zero and it is not stable. There are periods — notably around the 2008 financial crisis — when correlation rises, peaking briefly above 0.5 on a three-year rolling basis (where 1.0 means assets move in perfect lockstep and 0 means they move entirely independently). This reflects genuine sensitivity to macro conditions during acute systemic stress.
 
 Second, for context: the rolling correlation between major equity markets (S&P 500, Nikkei 225, Hang Seng) and between equities and corporate bonds typically hovers around or above 0.5 for extended periods. Fine wine's relationship is meaningfully different from these conventional asset pairs — not perfect, but genuinely lower and more variable.
 
@@ -78,7 +78,7 @@ The most direct test of a diversifier is its behaviour when equities are under s
 
 ![Comparative drawdown analysis: fine wine versus global equities during the 2008 financial crisis](../images/correlation/04_gfc_drawdown_comparison.png)
 
-*Figure 4: Cumulative drawdown from peak — fine wine versus the S&P 500 during the 2008–2009 global financial crisis. Sources: Liv-ex, Bloomberg.*
+*Figure 4: Cumulative drawdown from peak — fine wine versus the S&P 500 during the 2008–2009 global financial crisis. Sources: Liv-ex, Yahoo Finance.*
 
 **The 2008 Global Financial Crisis (September 2008 – February 2009).** The S&P 500 fell approximately 36% from its pre-crisis peak to its trough. The Liv-ex 100 fine wine index fell approximately 17% over the same period — a significantly shallower drawdown. More striking still: fine wine had recovered to its prior peak by early 2010. The S&P 500 did not recover to its 2007 high until 2013.
 
@@ -86,7 +86,7 @@ This is not simply an index construction artefact. The period captured active tr
 
 ![Multi-window comparison: fine wine and equities around the COVID shock in early 2020](../images/correlation/04b_covid_multiwindow_comparison.png)
 
-*Figure 5: Fine wine versus global equities around the COVID-19 market shock (January–April 2020). Sources: Liv-ex, Bloomberg.*
+*Figure 5: Fine wine versus global equities around the COVID-19 market shock (January–April 2020). Sources: Liv-ex, Yahoo Finance.*
 
 **The COVID Shock (January – March 2020).** The S&P 500 fell approximately 21% from peak to trough in this period. The Liv-ex 100 fell less than 1%. The brevity of the equity sell-off before stimulus intervention means we cannot place full weight on this episode — a more sustained downturn might have drawn more substantial response from fine wine prices. But the contrast in immediate market response is notable.
 
@@ -104,11 +104,11 @@ This heterogeneity is quantitatively significant. On a quarterly basis, approxim
 
 ![Burgundy 150 correlation with equities compared to the Liv-ex 100, around the 2008 financial crisis](../images/correlation/05_burgundy150_vs_sp500_ftse_2008.png)
 
-*Figure 6: Rolling correlation — the Burgundy 150 index versus S&P 500 and FTSE 100, with comparison to the broader Liv-ex 100. Sources: Liv-ex, Bloomberg.*
+*Figure 6: Rolling correlation — the Burgundy 150 index versus S&P 500 and FTSE 100, with comparison to the broader Liv-ex 100. Sources: Liv-ex, Yahoo Finance.*
 
 ![Bar chart comparing Burgundy 150 drawdown versus equities during GFC](../images/correlation/06_burgundy150_gfc_bar_comparison.png)
 
-*Figure 7: Comparative performance — Burgundy 150 versus major equity indices during the 2008 global financial crisis. Sources: Liv-ex, Bloomberg.*
+*Figure 7: Comparative performance — Burgundy 150 versus major equity indices during the 2008 global financial crisis. Sources: Liv-ex, Yahoo Finance.*
 
 The Burgundy 150 index — tracking the 150 most frequently traded wines from Burgundy — has historically shown lower correlation with equities than the broader Liv-ex 100. This reflects the specific characteristics of the region: limited production volumes, exceptional global demand, and a collector base whose purchasing decisions are less sensitive to short-term financial market sentiment.
 
@@ -144,7 +144,7 @@ Two points provide important context.
 
 ![Fine wine returns versus S&P 500 adjusted for currency effects across GFC and COVID periods](../images/currency/04_wine_vs_sp500_fx_adjusted.png)
 
-*Figure 10: Fine wine returns versus S&P 500 — both expressed on a currency-adjusted basis for GBP-based investors, across the 2008–2009 and 2020 stress periods. Sources: Liv-ex, Bloomberg, WineFi analysis.*
+*Figure 10: Fine wine returns versus S&P 500 — both expressed on a currency-adjusted basis for GBP-based investors, across the 2008–2009 and 2020 stress periods. Sources: Liv-ex, Yahoo Finance, WineFi analysis.*
 
 ![Crisis period FX impact decomposition: GFC and COVID](../images/currency/03_crisis_periods_gfc_covid_fx_impact.png)
 
@@ -154,17 +154,17 @@ The right approach is neither to dismiss currency effects nor to present sterlin
 
 ![Brexit event study: sterling/euro dynamics and fine wine returns](../images/currency/05_brexit_event_study.png)
 
-*Figure 12: Event study of the Brexit referendum — sterling depreciation and its impact on fine wine returns in different currencies. Sources: Liv-ex, Bloomberg, WineFi analysis.*
+*Figure 12: Event study of the Brexit referendum — sterling depreciation and its impact on fine wine returns in different currencies. Sources: Liv-ex, Yahoo Finance, WineFi analysis.*
 
 ![Long-run GBP, USD, and EUR exchange rate history](../images/currency/06_gbp_usd_eur_historical.png)
 
-*Figure 13: Historical GBP/USD and GBP/EUR exchange rates, 2002–2025. Sources: Bloomberg.*
+*Figure 13: Historical GBP/USD and GBP/EUR exchange rates, 2002–2025. Sources: Yahoo Finance.*
 
 ---
 
 ## Liquidity: Price Stability Is Not the Same as Liquidity
 
-A separate concern is liquidity. Fine wine is not liquid in the conventional sense. There is no continuous two-way market; bid-offer spreads are meaningful; and the time required to execute a large sale at a full price can run to weeks or months. These are real constraints.
+A separate concern is liquidity. Fine wine is not liquid in the conventional sense. There is no continuous two-way market; the gap between buying and selling prices is meaningful; and the time required to execute a large sale at a full price can run to weeks or months. These are real constraints.
 
 It is important, however, to distinguish between liquidity risk and price risk. An asset can be relatively illiquid and yet not subject to dramatic price collapse during a downturn. The fine wine market's behaviour during the 2008 financial crisis illustrates this: prices fell, but moderately and gradually — the illiquidity that slows trading in both directions also moderates the pace of price discovery on the downside.
 
@@ -236,7 +236,7 @@ At WineFi, this philosophy underpins every portfolio we construct. Our investmen
 **Macroeconomic and financial market data:**
 - S&P Dow Jones Indices. *S&P 500 historical price data.* spglobal.com
 - FTSE Russell. *FTSE 100 Index data.* ftserussell.com
-- Bloomberg L.P. *Equity index, gold, and currency price data series.*
+- Yahoo Finance. *Equity index, gold, and currency price data series.* finance.yahoo.com
 - Bank of England. *UK historical exchange rate data.* bankofengland.co.uk
 
 ---
