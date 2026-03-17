@@ -37,3 +37,6 @@ tasks/
 
 # Jupyter notebooks
 notebooks/.ipynb_checkpoints/
+
+# Temporary agent artifacts
+pr_body.md
