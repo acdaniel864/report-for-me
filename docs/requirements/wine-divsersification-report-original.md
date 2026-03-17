@@ -1,154 +1,240 @@
-# Fine Wine as a Diversification Play Argument Rebuttals
+# Fine Wine Diversification: Analysis & Report Brief
 
-Note: this project has been started your job is to continue, triple check what has been done before and make sure all notebooks will run locally when tested by me. Cruciall ALL IMAGES NEED TO BE SAVED IN THE dir report-for-me/projects/correlation-diversification/images - this was not done correctly previously. 
+## Objective
 
-We wrote a report about Fine Wine as a diversifier, how it's performed during periods of market stress, it is stored in `projects/correlation-diversification/winefi-diversification-report.md`
+Produce two reports (with supporting analysis notebooks) exploring whether fine wine is a good portfolio diversifier, with emphasis on heterogeneity within fine wine and why Liv-ex index-based analysis alone is misleading.
 
-Others have written indirect rebuttals, all stored in `projects/correlation-diversification/rebuttals-to-analyse.md`.
+### Source material
 
-Your job is to write two reports and do analysis using data from Mother Duck database, as well as other resources from internet from Yahoo Finance, etc. Exploring if fine wine is a good diversifier within a wider selection of assets. Focusing on the idea that using Liv-ex indices to track the fine wine market is biassed because they are just the most liquid subset of wines and therefore the most highly responsive to changes in market situations. This is a biassed subset, and that heterogeneity within fine wine is key because some wines maintain demand better than others during periods of market stress.
+| What | Path |
+|---|---|
+| WineFi's original diversification report | `projects/correlation-diversification/winefi-diversification-report.md` |
+| Third-party rebuttals to analyse | `projects/correlation-diversification/rebuttals-to-analyse.md` |
 
-Specifically:
-1. One report should be a general internal report for our own learnings and general findings.
-2. The second report should be an indirect (not referencing other people) rebuttal that addresses the responses to our report, Which can be shared publicly with WineFi clients and put on our website. In that vein, it needs to be easy to digest, make sense, reference sources correctly, not overly technical, but still withstand any arguments against it.
+---
 
+## Deliverables
 
-**My opinion to be explored:**
-We absolutely can hang our hat on, “even if the Liv-ex has shown periods of correlation with stocks. Certain wines don’t and asset selection is key.”
+### Report 1 — Internal
 
-Just because industry experts experience lower demand and a harder market when there’s a massive financial crash (which is obvious) doesn’t mean that if you sell your wine during that crash, you’re going to have to take an equal or greater hit on the valuation of that wine compared to how much the S&P might have fallen.
+- Audience: WineFi team only.
+- Purpose: balanced, nuanced analysis of every point raised in the rebuttals. What did they get right? What did they get wrong? What does the data say?
+- LWIN codes and database references are fine here.
 
-This is one of the most controversial topics in the wine trade but also a topic everyone 𝘭𝘰𝘷𝘦𝘴 to overcomplicate.
+### Report 2 — External (website / client-facing)
 
-Are fine wine returns uncorrelated with other assets and therefore does fine wine make a good portfolio diversifier? 
+- Audience: WineFi clients and public.
+- Purpose: indirect rebuttal (never name or reference the rebuttal authors). Official company stance on fine wine as a diversifier and its relative performance vs other asset classes, especially in downturns.
+- Tone: accessible, well-sourced, not overly technical, but rigorous enough to withstand counter-arguments.
+- **No LWIN codes, no database table names, no internal tooling references.** Use wine names and plain descriptions only.
+- Keep plots simple and clean.
 
-Why does it even matter?
+### Shared requirements for both reports
 
-Whilst fine wine is not completely isolated from financial markets (nothing is in 2026), it has historically shown low and time-varying correlation with other assets like equities and gold.
+- Format: Markdown files with images referenced inline.
+- Every plot must be saved as a PNG under `projects/correlation-diversification/images/` (subdirs allowed, e.g. `images/currency/`).
+- Every image must have a caption that explains the data, fits within the image, and has no overlapping text or titles.
+- ALL ARGUMENTS MUST CRITIQUED FOR FACTUAL ACCURACY
 
-Static month-on-month correlations can be misleading. Illiquidity, appraisal-based pricing, and non-synchronous trading artificially smooth wine prices and bias correlations downward. 
+---
 
-Rolling correlations provide a more realistic view, showing low but unstable relationships that can briefly rise during systemic crises.
+## Central Thesis to Explore
 
-Even then, during major market stress, fine wine has often shown apparent resilience.
+> "Even if Liv-ex indices have shown periods of correlation with equities, certain wines do not — asset selection is key."
 
-Through the 2008 financial crisis, the Liv-ex 100 — an index of frequently traded fine wines — fell ~17% vs. the S&P 500 at ~36%. The fine wine index had recovered to prior highs by 2010 while equities did not until 2013.
+Key points:
 
-Now here’s the key no one talks about…
-
-💎 Fine wine is highly heterogeneous: what wine you invest in matters 𝐚 𝐥𝐨𝐭.
-
-💎 Correlation with mainstream assets, as well as overall returns, varies wildly by region, producer, liquidity and other factors.
-
-💎 Diversification benefits are selection-dependent. 
-
-💎 Broader indices (Liv-ex 1000) and regional indices (e.g. Burgundy 150) have historically shown even lower equity correlation than the Liv-ex 100. 
-
-Now, this is not to say that the wine trade doesn't have a hard time during economic crises, that trading activity is unaffected by the wider market or that 'all fine wine is perfectly uncorrelated with other assets'. 
-
-Fine wine is not as a guaranteed safe haven. But through disciplined data-led selection and purchasing - rather than passive exposure to the market as a whole - low correlation diversification benefits can be achieved. 
-
-A well-selected fine wine portfolio can provide diversification and resilience.
-
-**Additional points to explore:**
-- it is important to show the GBP is the baseline currency for fine wines you can argue that it is changes in strerling relative to other currencies that make the largest impact to fine wine prices and we can also show that with data. Maybe you only have to argue its one of the main baseline currencies for it to be a factor worth mentioning. 
-- What’s mad is if you were investing in property internationally, one of your considerations would be what currency is this property in and what currency am I likely to sell it in.
-- Their argument is like you’re not allowed to mention the the currency element of fine wine ownership/investment. 
-- Liquidity can reduce in fine wine without that having a massive effect on transaction prices especially  in the short term.  the real question isn't "Do wine prices fall?" or "Does the market get tougher during wider market instability or crashes like the 08 crisis." It's really how much the price is falling compared to other assets. How hard is it to sell if you want to liquidate.
-- Show examples of the heterogeneity within fine wine frequently traded wines that fell in price using transaction data, even more than the market during market crashes;  frequently traded fine wines that fell much less than the market during the market crash.  Analyse what this says about Fine Wine and why grouping it all together is one thing or why using the Liv-ex indices to define the fine wine markets undersell its potential to outperform especially in wider market downturns. For example salon (1807626) and dom perignon (1082656) have been much more resilient than Lafite (1011872) in wider asset market downturns. 
+1. **Liv-ex indices are biased.** The Liv-ex 100 and 1000 track the *most liquid* fine wines. These are the most responsive to broader market moves. Using them as a proxy for "the fine wine market" is convenient but not representative.
+2. **Fine wine is highly heterogeneous.** Correlation with equities, and overall returns, vary by region, producer, vintage, and liquidity. Broader indices (Liv-ex 1000) and regional indices (e.g. Burgundy 150) have historically shown lower equity correlation than the Liv-ex 100.
+3. **Static correlations are misleading.** Illiquidity, appraisal-based pricing, and non-synchronous trading smooth wine prices and bias correlations downward. Rolling correlations give a more realistic (low but unstable) picture.
+4. **Resilience during stress.** In the 2008 crisis the Liv-ex 100 fell ~17% vs S&P 500 ~36%, recovering to prior highs by 2010 (equities: 2013). The question is not "do wine prices fall?" but "by how much relative to other assets, and how hard is it to exit?"
+5. **Liquidity vs price.** Reduced trading volume does not necessarily mean lower transaction prices. Sellers holding firm on reserve prices in a downturn is a feature, not a bug.
+6. **Currency matters.** GBP is the baseline currency for fine wine pricing. Changes in sterling relative to USD and EUR are a major driver of apparent price moves — just as currency is a consideration when investing in international property. Dismissing the currency dimension of wine investment is unjustified.
+7. **Heterogeneity case studies.** Show specific wines that were resilient during downturns (e.g. Salon — LWIN7 `1807626`, Dom Pérignon — `1082656`) vs those that fell sharply (e.g. Lafite — `1011872`). Analyse what this says about selection-dependent diversification.
+8. **Burgundy 150 in 2008.** Compare its drawdown to S&P 500 (currency-adjusted) and FTSE 100.
+9. **Fine wine is not a guaranteed safe haven.** We are not claiming that. The claim is that disciplined, data-led selection can deliver low-correlation diversification benefits.
 
 
+**This should be our public stance more or less:**
+Fine wine shouldn’t be viewed as a perfect hedge, but it can play a valuable role as a structural diversifier. While liquidity and price discovery can tighten in downturns, transaction prices tend to be more robust than equities and ultimately - as a tangible asset with its own demand drivers - fine wine can help build a more resilient portfolio that isn’t fully tied to traditional financial cycles.
+---
 
-**Database connection:**
+## Analysis Approach
 
-Connect to MotherDuck via the Python `duckdb` library. The `motherduck_token` env var is already set in the environment — `duckdb.connect("md:")` picks it up automatically. **Use uv for dependencies:** from repo root run `uv sync`; the project uses `pyproject.toml` and `uv.lock` (no `requirements.txt`).
+### Notebooks
+
+Write across multiple notebooks, each tightly focused on one topic. You define the structure of `projects/correlation-diversification/`. Save important aggregated datasets alongside images.
+
+### Time period
+
+~2000 onwards (when Liv-ex indices begin).
+
+### Vintage filter
+
+Only include wines with vintage >= 1980.
+
+### Comparison assets
+
+Use **total return** indices (wine yields no dividends, so price-only indices for equities would be an unfair comparison):
+
+```python
+import yfinance as yf
+
+sp500 = yf.download("^SP500TR", start="2000-01-01")["Close"]   # S&P 500 Total Return
+ftse  = yf.download("CUKX.L",  start="2000-01-01")["Close"]    # FTSE 100 Total Return (GBP)
+gold  = yf.download("GC=F",    start="2000-01-01")["Close"]     # Gold
+```
+
+### Liv-ex index data
+
+- Historical index returns: `projects/correlation-diversification/data/liv-ex_index_history.csv`
+- Liv-ex 1000 components (2020–2025): `projects/correlation-diversification/data/25-02-11_lx1000_components_2020-2025.csv` (links to LWIN11s)
+- Use heterogeneity *between* Liv-ex sub-indices to show that even among the most liquid wines, correlation to equities varies.
+
+### Building custom indices from wine data
+
+- Use latent price data (see database section below) as the source — do **not** re-model sparse trades.
+- Use LWIN11 (wine-vintage) level data; derive LWIN7 (wine label) level indices as needed.
+- **Index construction must account for new wines joining over time.** Only a wine's appreciation/depreciation *after* its first appearance should contribute to the index. Chain-link or similar methodology required.
+- Move beyond Liv-ex indices: build your own trade-based indices and compare. Start with the most liquid LWIN7s/LWIN11s, then explore less liquid wines — acknowledging and addressing the liquidity-bias.
+- Reference leading academic research on fine wine price tracking and sparse-asset index construction.
+
+### Example wines to consider using (LWIN7 wine label level)
+- Filter out all vintages older than 1980 firstly!
+- Use these first 3: Salon (LWIN7: 1807626), Domaine de la Romanée-Conti, Échezeaux (LWIN7: 1028658) and Lafite (LWIN7: 1011872) as a core 3:
+  - Salon (LWIN7: 1807626) 
+  - Domaine de la Romanée-Conti, Échezeaux (LWIN7: 1028658)
+  - Lafite (LWIN7: 1011872).
+- Others to consider especiallty when showing heterogeneity:
+  - Soldera Case Basse, Toscana	(1226504)
+  - Jacques Selosse, Millesime	(1226155)
+  - Domaine Armand Rousseau, Chambertin Grand Cru	(1057005)
+  - Sassicaia, Tenuta San Guido, Bolgheri	(1102037)
+  - Masseto, Toscana	(1160743)
+  - Domainen Arnoux-Lachaux (1018783)
+  - Chateau Figeac Premier Grand Cru (1009769)
+
+
+---
+
+## Environment & Dependencies
+
+**Use [uv](https://docs.astral.sh/uv/) — no pip, no `requirements.txt`.**
+
+```bash
+uv sync                        # create/update venv, install all deps
+uv add <package>               # add a new dependency (keeps lockfile in sync)
+uv run jupyter notebook        # run notebooks with project interpreter
+```
+
+The project is managed with `pyproject.toml` and `uv.lock`.
+
+---
+
+## Database Connection (MotherDuck)
 
 ```python
 import duckdb
+conn = duckdb.connect("md:")   # picks up motherduck_token from env
+```
 
-conn = duckdb.connect("md:")
+The `motherduck_token` env var is pre-set. Always use fully qualified table names (`database.schema.table`).
 
-# Always use fully qualified table names: database.schema.table
+**First step in any notebook:** run the schema query below to discover columns before writing analysis queries. Never assume column names.
+
+```python
 df = conn.execute("""
-    SELECT column_name, data_type 
-    FROM information_schema.columns 
-    WHERE table_schema = 'mrt' 
+    SELECT column_name, data_type
+    FROM information_schema.columns
+    WHERE table_schema = 'mrt'
       AND table_catalog = 'winefi'
       AND table_name = 'mrt_unified_trades_tbvm'
 """).df()
 ```
 
-**First step in any notebook**: Run the schema query above to discover available columns before writing analysis queries. Do NOT assume column names.
-
-**Performance rules**: 
-- Never `SELECT *` without a `LIMIT` — some tables have tens of millions of rows.
-- Push aggregation and filtering into SQL. Only pull aggregated/filtered results into pandas.
-- Use `LIMIT` during development, remove for final analysis.
-
-**Yahoo Finance for comparison assets**: Use the `yfinance` library to pull S&P 500 (`^GSPC`), FTSE 100 (`^FTSE`), and Gold (`GC=F`). Use price-only data (not total return) for correlation analysis.
-
 ```python
-import yfinance as yf
-
-sp500 = yf.download("^GSPC", start="2000-01-01")["Close"]
-ftse = yf.download("^FTSE", start="2000-01-01")["Close"]
-gold = yf.download("GC=F", start="2000-01-01")["Close"]
+df_latent = conn.execute("""
+    SELECT column_name, data_type
+    FROM information_schema.columns
+    WHERE table_schema = 'ml'
+      AND table_catalog = 'dev_winefi_raf'
+      AND table_name = 'ml_latent_prices_historic'
+""").df()
 ```
 
-**Database navigation:**
-1. LWINs used for joins THIS IS VERY IMPORTANT As navigating the database totally relies on understanding this:
-Key 1	LWIN7	7 digits	The wine lable (not producer) (e.g. 'Lafite' by Château Lafite Rothschild). - 1011872
-Key 2	LWIN11: LWIN7 + Vintage	11 digits	Label with vintage Year the grapes were harvested (e.g., 2010). - 10118722010
-Key 3	LWIN16 LWIN7 + Vintage + Bottle Size	16 digits	How much wine is in the bottle (e.g., 750ml vs. 1500ml) with zero padding. - 1011872201000750
-Key 4	LWIN18 LWIN7 + Vintage +Pack size + Bottle Size 	18 digits	How many bottles are in the case (e.g., a case of 6 or 12) with zero padding and placed between vintage and bottle size. - 101187220101200750
+### Performance rules
 
-2. Connect data from the following tables in the MotherDuck database, but don't ever get the entire data set. You have to be selective with what you get, so aggregate calls and joins do as much of the analysis as you can do within the query. Some of these data sets have tens of millions of rows.
+- Never `SELECT *` without `LIMIT` — tables have tens of millions of rows.
+- Push aggregation and filtering into SQL; only pull aggregated results into pandas.
+- Use `LIMIT` during development; remove for final analysis.
 
-database name: winefi
-schema name: mrt or ml 
-table names: 
-- winefi.mrt.mrt_unified_bids (for all current bids) 
-- winefi.ml.ml_unified_trades_tbvm (look at all historic trade data with some outliers removed and unification done)
+### LWIN key system
 
-3. Use these colours for plots: 
-#9437ff — purple
-#83D483 — mantis
-#FFD166 — sunglow
-#F78C6B— coral
-#4D87D0 — blue  
-#EF476F— red
-#06D6A0 — emerald
-#C23FB7 — pink/purple
-#4A4A68 — slate
+All database joins depend on understanding LWINs:
 
+| Key | Name | Digits | Description | Example |
+|-----|------|--------|-------------|---------|
+| 1 | LWIN7 | 7 | Wine label (not producer) | `1011872` (Lafite) |
+| 2 | LWIN11 | 11 | LWIN7 + vintage year | `10118722010` |
+| 3 | LWIN16 | 16 | LWIN11 + bottle size (zero-padded) | `1011872201000750` |
+| 4 | LWIN18 | 18 | LWIN11 + pack size + bottle size (zero-padded) | `101187220101200750` |
 
-**Liv-ex indices:**
-- The returns of these indices are in /Users/AaranDaniel/Desktop/git/report-for-me/projects/correlation-diversification/data/liv-ex_index_history.csv
-- Use these and hetrogeneaity between them to make a point about how different subset of (even the most liquid) fine wines have difference correlations to widder asset classes. 
+### Tables
 
+**a. Latent prices (continuous time series)**
 
-**IMPORTANT POINTS:**
-- All prices are in GBP in the datebase unless otherwise stated! Currency needs to be paid careful attention at ALL TIMES. 
-- Write across multiple notebooks and keep the notebooks super segmented and clear as to what they're focusing on.
-- Save important aggregated data sets and save images in a separate directory.
-- Data for all historic liv-ex indices which Trade Fine Wine Markets is stored in `projects/correlation-diversification/data/liv-ex_index_history.csv`
-- We only care about the period from ~2000 onwards when the first Liv-ex indices begin. 
-- You can decide and define scturtue of `projects/correlation-diversification/` repo 
-- You will have to spend some time taking the trade data from sparse trades to something which can be more analysable, and it's going to be important that you think about how that can be analysed. We should focus on transaction prices and quantities to understand how correlated or otherwise fine wine is with other asset classes. 
-- Focus on S&P500, FTSE100 and Gold as comparison assets. 
-- Move beyond just the LIv-ex indices try to build your own trade based indices if possible.
-- One ket focus will have to be on how you build these kinds of indices or market trackers with sparse trade data. Doing it with the most liquid subset of lwin11 or lwin7 will be a good starting point but you need to think about bias here... this is a bias subset how do we look at the less liquid wines? 
-- Consider leading academic research on fine wine price tracking and sparse asset price market price tracking.
-- Focus on heterogeneity and opportunities that can be found in fine wine. Asking the question what wine labels (LWIN7) or wine-vintages (lwin11) have proven to be good diversifiers - lots of trades and little price decrease - even during wider market crashes AND which (like all the wines in the Liv-ex 1000 probably) have proven to be 
-- Check how the Burgundy 150 did during 2008 crash compared to S&P500 after acccounting for currency difference AND vs the FTSE100. 
-- A core part of our rebuttle needs to be that Liv-ex 100 and 1000 are THE MOST LIQUID subset of fine wines with secondary market liquidity, using that subset as the measure of 'the market' is common because its easy not because its a perfect representation of the market at wide. 
-- Lower trade quantity does not neccessarily = lower prices if you DO try and exit. The fact sellers aren't willing to take a cut on their valuation with say high reserve prices even in a market downturn is a feature not a bug and good for those that do want to exit. 
+```
+dev_winefi_raf.ml.ml_latent_prices_historic
+```
 
+| Column | Description |
+|--------|-------------|
+| `lwin11` | Wine-vintage identifier |
+| `yyyymm` | Year-month |
+| `price_latent` | MCMC-modelled latent trade price (state-space model, Gibbs sampler, Kalman filtering/smoothing) |
+| `region` | Wine region |
 
-## What completed looks like:
-You should make 2 reports both can be as markdown files with related plots saved in suitably named image dirs.
-1. Internal consumption only addressing each of the points made by the articles and giving a balanced nuanced analysis of their veracity. What did they get right, what did they get wrong, what does the data say and how does it relate to our opinions/arguements. 
-2. An external facing article which will be used on our website as official company stance on fine wines as a diversifier, its relative performance compared to other asset classes especially in market downturns. 
-3. All images are saved and committed to git and every image has a caption that explains the data being shown and that fits on the image. Not titles or text is overlapping on the images. 
-4. All arguments are triple checks for their veracity. 
+This is already a continuous time series derived from sparse trades. **Use this for all return calculations and custom index building.** Do not re-model sparse trades yourself.
 
+**b. Unified trades (raw transactions)**
+
+```
+winefi.ml.ml_unified_trades_tbvm
+```
+
+Cleaned historic trade data (outliers removed, sources unified). Use for analysing trade quantity, value, and volume patterns — not for return calculations.
+
+### Currency
+
+All database prices are in **GBP** unless stated otherwise. Pay careful attention to currency at all times when comparing to USD-denominated assets.
+
+---
+
+## Plot Palette
+
+Use only these colours across all notebooks and reports:
+
+| Hex | Name |
+|-----|------|
+| `#9437ff` | Purple |
+| `#83D483` | Mantis |
+| `#FFD166` | Sunglow |
+| `#F78C6B` | Coral |
+| `#4D87D0` | Blue |
+| `#EF476F` | Red |
+| `#06D6A0` | Emerald |
+| `#C23FB7` | Pink/Purple |
+| `#4A4A68` | Slate |
+
+---
+
+## Completion Checklist
+
+- [ ] **Internal report** (Markdown): addresses each rebuttal point with data-backed analysis.
+- [ ] **External report** (Markdown): client-ready, no internal references, well-sourced, simple plots.
+- [ ] All images saved as PNGs under `projects/correlation-diversification/images/`.
+- [ ] Every image has a non-overlapping caption explaining the data.
+- [ ] All image file references in reports point to existing files.
+- [ ] All factual claims triple-checked for accuracy.
+- [ ] All images committed to git.
+- [ ] Notebooks are segmented by topic and clearly named.
